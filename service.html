@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legal Consultancy - Service Page</title>
+
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0,-50..200" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/style.css">
+
+
+
+    <style>
+        .svc-sec {
+            padding: 90px 50px;
+            background: #ffffff;
+        }
+
+        .svc-sec-dark {
+            background: var(--header2);
+        }
+
+        .svc-tag {
+            font-size: 14px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--pcolor);
+            font-weight: 600;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .svc-title {
+            font-size: clamp(28px, 4vw, 44px);
+            color: var(--header2);
+            margin-bottom: 18px;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .svc-sec-dark .svc-title {
+            color: white;
+        }
+
+        .svc-desc {
+            font-size: 16px;
+            line-height: 1.7;
+            color: #555;
+            max-width: 600px;
+        }
+
+        .svc-sec-dark .svc-desc {
+            color: #cfcfcf;
+        }
+
+        .svc-header-center {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 55px auto;
+        }
+
+        .svc-header-center .svc-desc {
+            margin: 0 auto;
+        }
+
+        /* ===== 1. PAGE BANNER ===== */
+
+        .svc-banner {
+            background: linear-gradient(125deg, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.5)), url("https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1600&auto=format&fit=crop") center/cover no-repeat;
+            min-height: 50vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: center;
+            text-align: center;
+            padding: 180px 20px 50px 20px;
+        }
+
+        .svc-banner span.svc-tag {
+            background: rgba(255, 255, 255, 0.15);
+            width: fit-content;
+            padding: 6px 20px;
+            margin: 0 auto 16px auto;
+            color: white;
+        }
+
+        .svc-banner h1 {
+            color: white;
+            font-size: clamp(32px, 5vw, 56px);
+            max-width: 800px;
+            margin-bottom: 18px;
+            line-height: 1.2;
+        }
+
+        .svc-banner h1 span {
+            color: var(--pcolor);
+        }
+
+        .svc-banner p {
+            color: #e2e2e2;
+            max-width: 600px;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        /* ===== 2. SERVICES OVERVIEW GRID ===== */
+
+        .svc-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .svc-card {
+            background: white;
+            border: var(--border);
+            border-radius: 10px;
+            padding: 35px 28px;
+            transition: .4s ease;
+        }
+
+        .svc-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+            border-color: var(--pcolor);
+        }
+
+        .svc-card span.material-symbols-outlined {
+            font-size: 40px;
+            color: var(--pcolor);
+            margin-bottom: 18px;
+            display: block;
+        }
+
+        .svc-card h3 {
+            font-size: 20px;
+            color: var(--header2);
+            margin-bottom: 10px;
+        }
+
+        .svc-card p {
+            font-size: 15px;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+
+        .svc-card .read-more-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: var(--pcolor);
+            font-weight: 600;
+            font-size: 14px;
+            transition: .4s ease;
+        }
+
+        .svc-card .read-more-link span.material-symbols-outlined {
+            font-size: 18px;
+            margin: 0;
+            transition: .4s ease;
+        }
+
+        .svc-card .read-more-link:hover span {
+            transform: translateX(5px);
+        }
+
+        /* ===== 3. FEATURED SERVICE (alternating) ===== */
+
+        .feature-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto 80px auto;
+        }
+
+        .feature-row:last-child {
+            margin-bottom: 0;
+        }
+
+        .feature-row.reverse {
+            direction: rtl;
+        }
+
+        .feature-row.reverse>* {
+            direction: ltr;
+        }
+
+        .feature-row img {
+            width: 100%;
+            height: 380px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .feature-list {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            margin: 22px 0;
+        }
+
+        .feature-list div {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--header2);
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        .feature-list div span {
+            color: var(--pcolor);
+            font-size: 20px;
+        }
+
+        /* ===== 4. OUR APPROACH ===== */
+
+        .approach-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .approach-card {
+            text-align: center;
+            padding: 30px 20px;
+            position: relative;
+        }
+
+        .approach-num {
+            font-size: 50px;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.06);
+            display: block;
+            margin-bottom: -10px;
+        }
+
+        .approach-card span.material-symbols-outlined {
+            font-size: 34px;
+            color: var(--pcolor);
+            background: rgba(236, 164, 56, 0.1);
+            height: 70px;
+            width: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin: 0 auto 18px auto;
+        }
+
+        .approach-card h3 {
+            font-size: 18px;
+            color: white;
+            margin-bottom: 8px;
+        }
+
+        .approach-card p {
+            font-size: 14px;
+            color: #cfcfcf;
+            line-height: 1.6;
+        }
+
+        /* ===== 5. PRICING PLANS ===== */
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .price-card {
+            background: white;
+            border: var(--border);
+            border-radius: 10px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: .4s ease;
+        }
+
+        .price-card.highlight {
+            background: var(--header2);
+            transform: scale(1.04);
+            position: relative;
+        }
+
+        .price-card.highlight::before {
+            content: "Most Popular";
+            position: absolute;
+            top: -14px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--pcolor);
+            color: black;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 6px 18px;
+            border-radius: 20px;
+            white-space: nowrap;
+        }
+
+        .price-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .price-card.highlight:hover {
+            transform: scale(1.04) translateY(-8px);
+        }
+
+        .price-card h3 {
+            font-size: 20px;
+            color: var(--header2);
+            margin-bottom: 15px;
+        }
+
+        .price-card.highlight h3 {
+            color: white;
+        }
+
+        .price-card h2 {
+            font-size: 42px;
+            color: var(--pcolor);
+            margin-bottom: 5px;
+        }
+
+        .price-card>p {
+            font-size: 13px;
+            color: #888;
+            margin-bottom: 25px;
+        }
+
+        .price-card.highlight>p {
+            color: #cfcfcf;
+        }
+
+        .price-list {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+
+        .price-list div {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .price-card.highlight .price-list div {
+            color: #d9d9d9;
+        }
+
+        .price-list div span {
+            color: var(--pcolor);
+            font-size: 18px;
+        }
+
+        .price-btn {
+            width: 100%;
+            padding: 14px;
+            background: var(--pcolor);
+            border: none;
+            border-radius: 7px;
+            font-weight: 600;
+            font-size: 15px;
+            color: black;
+            cursor: pointer;
+            transition: .4s ease;
+        }
+
+        .price-btn:hover {
+            background: #f8a322;
+        }
+
+        /* ===== 6. CTA ===== */
+
+        .svc-cta-section {
+            background: linear-gradient(120deg, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.55)), url("https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=1600&auto=format&fit=crop") center/cover no-repeat;
+            padding: 100px 50px;
+            text-align: center;
+        }
+
+        .svc-cta-section>span.material-symbols-outlined {
+            font-size: 45px;
+            color: var(--pcolor);
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .svc-cta-section h1 {
+            color: white;
+            font-size: clamp(28px, 4vw, 48px);
+            max-width: 750px;
+            margin: 0 auto 18px auto;
+            line-height: 1.3;
+        }
+
+        .svc-cta-section p {
+            color: #d9d9d9;
+            max-width: 550px;
+            margin: 0 auto 30px auto;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        /* ===== Responsive ===== */
+
+        @media (max-width:1100px) {
+            .svc-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .feature-row {
+                grid-template-columns: 1fr;
+            }
+
+            .feature-row.reverse {
+                direction: ltr;
+            }
+
+            .approach-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr;
+                max-width: 450px;
+            }
+
+            .price-card.highlight {
+                transform: scale(1);
+            }
+
+            .price-card.highlight:hover {
+                transform: translateY(-8px);
+            }
+        }
+
+        @media (max-width:650px) {
+            .svc-sec {
+                padding: 60px 20px;
+            }
+
+            .svc-grid,
+            .approach-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+
+
+</head>
+
+<body>
+
+    <header class="header">
+
+        <div class="header1">
+            <div class="nav-time">
+                <a href="404.html"><span class="material-symbols-outlined">location_on</span>Office Hours | Mon - Fri |
+                    9:00 -
+                    6:00 </a>
+            </div>
+
+            <div class="nav-sotial-icons">
+                <a href="404.html"> <i class="fa-brands fa-whatsapp"></i></a>
+                <a href="404.html"> <i class="fa-brands fa-facebook"></i></a>
+                <a href="404.html"><i class="fa-brands fa-instagram"></i></a>
+                <a href="404.html"><i class="fa-brands fa-x-twitter"></i></a>
+            </div>
+
+            <div class="nav-contact-details">
+
+                <a href="404.html"><span class="material-symbols-outlined">location_on</span>Chennai,Tamil Nadu</a>
+                <a href="404.html"><span class="material-symbols-outlined">mail</span>admin@gmail.com</a>
+            </div>
+        </div>
+
+        <div class="header2">
+            <a href="index.html" class="company-logo"><img src="./src/logo.webp" alt="Company Logo"
+                    class="logo-img"></a>
+
+            <div class="nav-container">
+
+                <div class="sidebar-logo-container">
+
+                    <a href="index.html"><img src="./src/logo.webp" alt="" class="s-logo"></a>
+                    <span class="material-symbols-outlined close-btn">close</span>
+                </div>
+
+                <ul class="nav-bar">
+                    <li><a href="">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="service.html" class="active">Services</a></li>
+                    <li><a href="blog.html">Blogs</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+
+            </div>
+
+            <div class="search-sections">
+                <a href="404.html"><span class="material-symbols-outlined">call</span>+91 12345 09876</a>
+                <a href="login.html" class="login-btn"><span class="material-symbols-outlined">person</span>Login</a>
+            </div>
+
+            <div class="menu-container">
+                <a href=""><span class="material-symbols-outlined">person</span></a>
+                <span class="material-symbols-outlined menu-btn">menu</span>
+            </div>
+
+
+        </div>
+
+    </header>
+
+
+    <!-- 1. PAGE BANNER -->
+    <section class="svc-banner">
+        <span class="svc-tag">Our Services</span>
+        <h1>Legal Solutions Built <span>Around Your Needs</span></h1>
+        <p>From corporate compliance to personal disputes, our attorneys deliver focused, reliable legal support at
+            every step.</p>
+    </section>
+
+
+    <!-- 2. SERVICES OVERVIEW -->
+    <section class="svc-sec">
+        <div class="svc-header-center">
+            <span class="svc-tag">What We Offer</span>
+            <h2 class="svc-title">Comprehensive Legal Services</h2>
+            <p class="svc-desc">Specialized support across the practice areas that matter most to individuals and
+                businesses.</p>
+        </div>
+        <div class="svc-grid">
+            <div class="svc-card">
+                <span class="material-symbols-outlined">gavel</span>
+                <h3>Corporate Law</h3>
+                <p>Structuring, compliance, mergers, and contracts for businesses of every size.</p>
+                <a href="404.html" class="read-more-link">Learn More <span
+                        class="material-symbols-outlined">arrow_forward</span></a>
+            </div>
+            <div class="svc-card">
+                <span class="material-symbols-outlined">balance</span>
+                <h3>Employment Law</h3>
+                <p>Protecting employer and employee rights through fair, clear guidance.</p>
+                <a href="404.html" class="read-more-link">Learn More <span
+                        class="material-symbols-outlined">arrow_forward</span></a>
+            </div>
+            <div class="svc-card">
+                <span class="material-symbols-outlined">home</span>
+                <h3>Real Estate Law</h3>
+                <p>Property transactions, title verification, and dispute resolution.</p>
+                <a href="404.html" class="read-more-link">Learn More <span
+                        class="material-symbols-outlined">arrow_forward</span></a>
+            </div>
+            <div class="svc-card">
+                <span class="material-symbols-outlined">family_restroom</span>
+                <h3>Family Law</h3>
+                <p>Sensitive, confidential support for family and marital matters.</p>
+                <a href="404.html" class="read-more-link">Learn More <span
+                        class="material-symbols-outlined">arrow_forward</span></a>
+            </div>
+            <div class="svc-card">
+                <span class="material-symbols-outlined">description</span>
+                <h3>Contract Law</h3>
+                <p>Drafting and reviewing agreements that protect your interests.</p>
+                <a href="404.html" class="read-more-link">Learn More <span
+                        class="material-symbols-outlined">arrow_forward</span></a>
+            </div>
+            <div class="svc-card">
+                <span class="material-symbols-outlined">shield</span>
+                <h3>Litigation Support</h3>
+                <p>Strong courtroom advocacy backed by thorough case preparation.</p>
+                <a href="404.html" class="read-more-link">Learn More <span
+                        class="material-symbols-outlined">arrow_forward</span></a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- 3. FEATURED SERVICE DETAILS -->
+    <section class="svc-sec" style="background:#fafafa;">
+        <div class="feature-row">
+            <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=800&auto=format&fit=crop"
+                alt="Corporate law consultation">
+            <div>
+                <span class="svc-tag">Corporate Law</span>
+                <h2 class="svc-title">Guiding Businesses Through Every Legal Stage</h2>
+                <p class="svc-desc">From company formation to complex mergers, we help businesses stay compliant and
+                    protected at every stage of growth.</p>
+                <div class="feature-list">
+                    <div><span class="material-symbols-outlined">check_circle</span>Business formation & structuring
+                    </div>
+                    <div><span class="material-symbols-outlined">check_circle</span>Mergers & acquisitions support</div>
+                    <div><span class="material-symbols-outlined">check_circle</span>Regulatory compliance guidance</div>
+                </div>
+                <button class="hero-btn" style="color:black;">Get Started <span
+                        class="material-symbols-outlined">arrow_forward</span></button>
+            </div>
+        </div>
+
+        <div class="feature-row reverse">
+            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=800&auto=format&fit=crop"
+                alt="Real estate law consultation">
+            <div>
+                <span class="svc-tag">Real Estate Law</span>
+                <h2 class="svc-title">Secure Property Transactions, Simplified</h2>
+                <p class="svc-desc">We handle title verification, documentation, and dispute resolution so your property
+                    matters proceed smoothly.</p>
+                <div class="feature-list">
+                    <div><span class="material-symbols-outlined">check_circle</span>Title search & verification</div>
+                    <div><span class="material-symbols-outlined">check_circle</span>Sale and lease agreements</div>
+                    <div><span class="material-symbols-outlined">check_circle</span>Property dispute resolution</div>
+                </div>
+                <button class="hero-btn" style="color:black;">Get Started <span
+                        class="material-symbols-outlined">arrow_forward</span></button>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- 4. OUR APPROACH -->
+    <section class="svc-sec svc-sec-dark">
+        <div class="svc-header-center">
+            <span class="svc-tag">Our Approach</span>
+            <h2 class="svc-title">How We Handle Every Case</h2>
+            <p class="svc-desc">A structured process that keeps you informed and confident from start to finish.</p>
+        </div>
+        <div class="approach-grid">
+            <div class="approach-card">
+                <span class="approach-num">01</span>
+                <span class="material-symbols-outlined">calendar_month</span>
+                <h3>Consultation</h3>
+                <p>We listen to your situation and assess your legal needs.</p>
+            </div>
+            <div class="approach-card">
+                <span class="approach-num">02</span>
+                <span class="material-symbols-outlined">fact_check</span>
+                <h3>Case Assessment</h3>
+                <p>Our team reviews documents and outlines your options.</p>
+            </div>
+            <div class="approach-card">
+                <span class="approach-num">03</span>
+                <span class="material-symbols-outlined">strategy</span>
+                <h3>Strategy & Action</h3>
+                <p>We build and execute a plan tailored to your goals.</p>
+            </div>
+            <div class="approach-card">
+                <span class="approach-num">04</span>
+                <span class="material-symbols-outlined">verified</span>
+                <h3>Resolution</h3>
+                <p>We represent you through to a favourable outcome.</p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- 5. PRICING PLANS -->
+    <section class="svc-sec">
+        <div class="svc-header-center">
+            <span class="svc-tag">Consultation Plans</span>
+            <h2 class="svc-title">Simple, Transparent Pricing</h2>
+            <p class="svc-desc">Choose a consultation plan that fits your legal needs, with no hidden charges.</p>
+        </div>
+        <div class="pricing-grid">
+            <div class="price-card">
+                <h3>Basic Consultation</h3>
+                <h2>₹1,999</h2>
+                <p>Per Session</p>
+                <div class="price-list">
+                    <div><span class="material-symbols-outlined">check_circle</span>45-minute consultation</div>
+                    <div><span class="material-symbols-outlined">check_circle</span>Case evaluation</div>
+                    <div><span class="material-symbols-outlined">check_circle</span>Basic document review</div>
+                </div>
+                <button class="price-btn">Choose Plan</button>
+            </div>
+            <div class="price-card highlight">
+                <h3>Standard Representation</h3>
+                <h2>₹8,999</h2>
+                <p>Per Month</p>
+                <div class="price-list">
+                    <div><span class="material-symbols-outlined">check_circle</span>Dedicated attorney</div>
+                    <div><span class="material-symbols-outlined">check_circle</span>Unlimited consultations</div>
+                    <div><span class="material-symbols-outlined">check_circle</span>Contract & document drafting</div>
+                    <div><span class="material-symbols-outlined">check_circle</span>Priority case handling</div>
+                </div>
+                <button class="price-btn">Choose Plan</button>
+            </div>
+            <div class="price-card">
+                <h3>Full Litigation Support</h3>
+                <h2>Custom</h2>
+                <p>Based on Case</p>
+                <div class="price-list">
+                    <div><span class="material-symbols-outlined">check_circle</span>End-to-end representation</div>
+                    <div><span class="material-symbols-outlined">check_circle</span>Senior attorney assigned</div>
+                    <div><span class="material-symbols-outlined">check_circle</span>Court appearance included</div>
+                </div>
+                <button class="price-btn">Get Quote</button>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- 6. CTA -->
+    <section class="svc-cta-section">
+        <span class="material-symbols-outlined">event_available</span>
+        <h1>Not Sure Which Service You Need?</h1>
+        <p>Book a free initial consultation and our team will guide you to the right legal solution for your situation.
+        </p>
+        <button class="hero-btn" style="margin:0 auto;color:black;">Book a Appointment <span
+                class="material-symbols-outlined">arrow_forward</span></button>
+    </section>
+
+    <footer class="footer">
+
+        <div class="newsletter-wrap">
+            <h1>Newsletter</h1>
+            <h6>Stay updated</h6>
+
+            <div class="footer-form">
+                <input type="email" placeholder="Email Address" id="footer-mail">
+                <button class="footer-btn">Subscribe</button>
+            </div>
+        </div>
+
+        <div class="footer-main">
+            <div class="foot1">
+                <a href="index.html"><img src="./src/logo.webp" alt="company Logo" class="footer-logo"></a>
+
+                <p>Trusted legal guidance and effective solutions tailored to protect your rights and interests.</p>
+
+                <div class="footer-icons">
+                    <a href="404.html"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="404.html"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="404.html"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="404.html"><i class="fa-brands fa-x-twitter"></i></a>
+                </div>
+            </div>
+
+            <div class="foot2">
+                <h2>Quick Links</h2>
+
+                <div class="footer-links">
+
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="service.html">Services</a>
+                    <a href="blog.html">Blogs</a>
+                    <a href="contact.html">Contact</a>
+
+                </div>
+            </div>
+
+            <div class="foot2">
+                <h2>Services</h2>
+
+                <div class="footer-links">
+                    <a href="404.html">Corporate Law</a>
+                    <a href="404.html">Employment Law</a>
+                    <a href="404.html">Real Estate Law</a>
+                    <a href="404.html">Business Advisory</a>
+                    <a href="404.html">Legal Consultation</a>
+                </div>
+            </div>
+
+
+            <div class="foot2">
+
+                <h2>Support us</h2>
+
+                <div class="footer-links">
+                    <a href="404.html">Contract Law</a>
+                    <a href="404.html">Family Law</a>
+                    <a href="404.html">Property Disputes</a>
+                    <a href="404.html">Litigation Support</a>
+                    <a href="404.html">Dispute Resolution</a>
+                </div>
+
+            </div>
+
+            <div class="foot2">
+                <h2>Address</h2>
+
+                <div class="footer-links">
+
+
+                    <a href="404.html"> <span class="material-symbols-outlined">call</span>+91 12345 67898</a>
+                    <a href="404.html"><span class="material-symbols-outlined">mail</span>admin@gmail.com</a>
+                    <a href="404.html"><span class="material-symbols-outlined">location_on</span>Chennai, Tamilnadu</a>
+
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>Copyright @ 2026 All rights Reserved</p>
+
+            <div>
+                <a href="404.html">Terms & condition</a> | <a href="404.html">Privacy</a>
+            </div>
+        </div>
+
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

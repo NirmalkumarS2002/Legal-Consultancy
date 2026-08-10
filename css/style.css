@@ -4,13 +4,6 @@
     box-sizing: border-box;
 }
 
-.header {
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    width: 100%;
-    z-index: 9999;
-}
 
 body {
     overflow-x: hidden;
@@ -29,16 +22,28 @@ html {
     --pcolor: #ECA438;
 }
 
-.header1 {
+.header {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    flex-direction: column;
+    position: absolute;
+    width: 100%;
+    z-index: 9999;
+}
+
+.header.active {
+    position: fixed;
+}
+
+.header1 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
     border-bottom: var(--border);
     padding: 10px 30px;
 }
 
 .header.active .header1 {
     background: var(--header1);
+    display: none;
 }
 
 
@@ -51,6 +56,7 @@ html {
 .nav-sotial-icons {
     display: flex;
     align-content: center;
+    justify-content: center;
     gap: 15px;
 }
 
@@ -63,9 +69,20 @@ html {
     color: white;
 }
 
+.nav-contact-details{
+    display: flex;
+    justify-content: flex-end;
+}
+
 .nav-time,
 .nav-contact-details a {
     font-size: 15px;
+    transition: .5s ease;
+}
+
+.nav-time a:hover,
+.nav-contact-details a:hover {
+    color: var(--pcolor);
 }
 
 .nav-time a span,
@@ -80,8 +97,14 @@ html {
     justify-content: center;
     height: 38px;
     width: 38px;
-    background: var(--header2);
     border-radius: 7px;
+    transition: .5s ease;
+}
+
+.nav-sotial-icons a:hover {
+    color: var(--pcolor);
+    background: rgba(255, 255, 255, 0.137);
+    transform: rotate(360deg);
 }
 
 .nav-contact-details {
@@ -91,10 +114,11 @@ html {
 }
 
 .header2 {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
     padding: 10px 30px;
+    align-items: center;
     border-bottom: var(--border);
 }
 
@@ -113,7 +137,8 @@ html {
 
 .nav-bar {
     display: flex;
-    gap: 50px;
+    justify-content: space-around;
+    gap: 20px;
 }
 
 .nav-bar li {
@@ -121,15 +146,40 @@ html {
 }
 
 .nav-bar li a {
-    font-size: 16px;
+    font-size: 15px;
     text-decoration: none;
     color: white;
     text-transform: uppercase;
+    transition: .5s ease;
+    position: relative;
+
+}
+
+
+
+.nav-bar li a::before {
+    content: "";
+    background: var(--pcolor);
+    width: 0%;
+    height: 2px;
+    position: absolute;
+    bottom: -3px;
+    transition: .5s ease;
+
+}
+
+.nav-bar li a:hover::before {
+    width: 100%;
+}
+
+.nav-bar li .active::before {
+    width: 100%;
 }
 
 .search-sections {
     display: flex;
     align-items: center;
+    justify-content: flex-end;
     gap: 25px;
 }
 
@@ -140,6 +190,11 @@ html {
     text-decoration: none;
     color: white;
     font-size: 16px;
+    transition: .5s ease;
+}
+
+.search-sections a:hover {
+    color: var(--pcolor);
 }
 
 .login-btn {
@@ -149,11 +204,44 @@ html {
     font-size: 20px;
     color: black !important;
     font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    position: relative;
+    overflow: hidden;
+    transition: 0.4s ease;
 }
 
 .login-btn span {
     color: black !important;
     font-weight: 600;
+    position: relative;
+    z-index: 2;
+}
+
+.login-btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -120%;
+    width: 70%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.35);
+    transform: skewX(-25deg);
+    transition: 0.6s ease;
+}
+
+.login-btn:hover::before {
+    left: 130%;
+}
+
+.login-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.login-btn:active {
+    transform: scale(0.98);
 }
 
 .menu-btn {
@@ -177,7 +265,7 @@ html {
     .nav-container {
         display: flex;
         flex-direction: column;
-        position: absolute;
+        position: fixed;
         top: 0;
         left: 0;
         height: 100vh;
@@ -216,6 +304,9 @@ html {
         padding-left: 20px;
     }
 
+    .header1,.header2{
+        grid-template-columns: 1fr 1fr;
+    }
 
     .nav-sotial-icons {
         display: none;
@@ -234,6 +325,7 @@ html {
     .menu-container {
         display: flex;
         align-items: center;
+        justify-content: flex-end;
         gap: 10px;
     }
 
@@ -273,7 +365,7 @@ html {
     }
 
     .header1 {
-        justify-content: center;
+        grid-template-columns: 1fr;
         padding: 10px 10px;
     }
 
@@ -322,10 +414,13 @@ html {
     opacity: 0.05;
 }
 
-.footer>div {
+.footer>div{
+        padding-block: 50px;
+}
+
+.footer-main,.footer-bottom {
     max-width: 1400px;
     margin: 0 auto;
-    padding-block: 50px;
     z-index: 1;
 }
 
@@ -366,17 +461,23 @@ html {
     color: white;
 }
 
+.footer-form #footer-mail:focus {
+    outline: none;
+    border: 1px solid white;
+}
+
 .footer-form .footer-btn {
     padding: 20px 30px;
     text-transform: uppercase;
     font-weight: 500;
-    border: 1px solid black;
+    border: 1px solid white;
 }
 
 
 .footer-form .footer-btn:hover {
     background: rgba(0, 0, 0, 0.856);
-    color: white;
+    color: var(--pcolor);
+    border-color: black;
 }
 
 
@@ -517,3 +618,36 @@ html {
     }
 
 }
+
+/* hero btns */
+
+  .hero-btn {
+            padding: 17px 30px;
+            font-size: 15px;
+            border: none;
+            margin-bottom: 20px;
+            background: var(--pcolor);
+            font-weight: 600;
+            border-radius: 7px;
+
+            display: flex ;
+            align-items: center ;
+            gap: 10px;
+            transition: .5s ease;
+        }
+
+         .hero-btn:hover span{
+            transform: translateX(5px);
+         }
+
+           .hero-btn:hover{
+            box-shadow: 1px 1px 20px rgba(184, 135, 11, 0.61);
+            background: #f8a322;
+           }
+
+        
+        .hero-btn span{
+            font-size: 20px;
+            transition: .5s ease;
+            color: black ;
+        }

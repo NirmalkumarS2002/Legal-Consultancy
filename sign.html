@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legal Consultancy - Sign Up Page</title>
+
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0,-50..200" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500..900;1,500..900&display=swap"
+        rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Google Sans", sans-serif;
+        }
+
+        html {
+            overflow-x: hidden;
+        }
+
+        :root {
+            --header1: #191919;
+            --header2: #141212;
+            --border: 1px solid rgba(128, 128, 128, 0.295);
+            --pcolor: #ECA438;
+            --scolor: #ffffff;
+            --dark: #101010;
+            --card: #1a1a1a;
+            --muted: #b8b8b8;
+        }
+
+        body {
+            scroll-behavior: smooth;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+            background: linear-gradient(125deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)),
+                url("https://images.unsplash.com/photo-1589578527966-fdac0f44566c?q=80&w=1920&auto=format&fit=crop") center/cover no-repeat;
+        }
+
+        .login-page {
+            max-width: 1300px;
+            width: 100%;
+            background: var(--dark);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            border-radius: 16px;
+            overflow: hidden;
+            border: var(--border);
+            box-shadow: 0px 20px 60px rgba(0, 0, 0, 0.6);
+        }
+
+        /* ===== LEFT BRAND PANEL ===== */
+
+        .brand-page {
+            background: linear-gradient(160deg, rgba(20, 18, 18, 0.94), rgba(10, 10, 10, 0.88)),
+                url("https://images.unsplash.com/photo-1589994965851-a8f479c573a9?q=80&w=1200&auto=format&fit=crop") center/cover no-repeat;
+            padding: 55px 45px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        .brand-top .brand-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: white;
+            text-decoration: none;
+            font-family: "Playfair Display", serif;
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .brand-logo span.material-symbols-outlined {
+            color: var(--pcolor);
+            font-size: 28px;
+        }
+
+        .brand-mid {
+            margin-top: 60px;
+        }
+
+        .brand-mid .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--pcolor);
+            font-size: 13px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .brand-mid .eyebrow::before {
+            content: "";
+            width: 26px;
+            height: 2px;
+            background: var(--pcolor);
+        }
+
+        .brand-mid h1 {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(32px, 3.6vw, 46px);
+            color: white;
+            line-height: 1.25;
+            margin-bottom: 18px;
+        }
+
+        .brand-mid p {
+            color: #dcdcdc;
+            font-size: 15px;
+            line-height: 1.7;
+            max-width: 420px;
+        }
+
+        .brand-list {
+            margin-top: 35px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .brand-list div {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .brand-list div span.material-symbols-outlined {
+            width: 38px;
+            height: 38px;
+            min-width: 38px;
+            border-radius: 8px;
+            background: rgba(236, 164, 56, 0.14);
+            color: var(--pcolor);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+
+        .brand-list div p {
+            color: #ddd;
+            font-size: 14px;
+        }
+
+        /* ===== RIGHT FORM PANEL ===== */
+
+        .form-page {
+            padding: 50px 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .log-head {
+            margin-bottom: 26px;
+        }
+
+        .log-head h1 {
+            font-size: 32px;
+            margin-bottom: 8px;
+            color: white;
+        }
+
+        .log-head p {
+            font-size: 14.5px;
+            color: var(--muted);
+            line-height: 1.5;
+            max-width: 380px;
+        }
+
+        .form {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+
+        .input-wraper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            column-gap: 16px;
+        }
+
+        .role-btns {
+            margin-bottom: 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            padding: 5px;
+            border-radius: 8px;
+            border: var(--border);
+            background: var(--card);
+        }
+
+        .role-btn {
+            padding: 12px 20px;
+            font-size: 15px;
+            border: none;
+            background: transparent;
+            color: white;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: .4s ease;
+            font-weight: 500;
+        }
+
+        .role-btn:hover {
+            color: var(--pcolor);
+        }
+
+        .role-btn.active {
+            background: var(--pcolor);
+            color: black;
+            font-weight: 600;
+        }
+
+        .inputbox {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .inputbox input {
+            padding: 15px 45px;
+            width: 100%;
+            border: var(--border);
+            background: var(--card);
+            color: white;
+            border-radius: 7px;
+            font-size: 14px;
+        }
+
+        .inputbox input::placeholder {
+            color: #888;
+        }
+
+        .inputbox input:focus,
+        .inputbox input:hover {
+            outline: none;
+            border-color: var(--pcolor);
+            box-shadow: 0px 0px 16px rgba(236, 164, 56, 0.25);
+        }
+
+        .f-icon {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 14px;
+            font-size: 20px;
+            color: var(--pcolor);
+        }
+
+        .passeye {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 14px;
+            font-size: 20px;
+            color: var(--pcolor);
+            cursor: pointer;
+        }
+
+        .errormsg {
+            color: #ff6b5b;
+            margin-bottom: 10px;
+            font-size: 12px;
+        }
+
+        .forget {
+            display: none;
+        }
+
+        .log-btn {
+            padding: 16px 30px;
+            background: var(--pcolor);
+            font-size: 15px;
+            font-weight: 600;
+            color: black;
+            border: none;
+            border-radius: 7px;
+            transition: .5s ease;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .log-btn span {
+            font-size: 20px;
+            transition: .5s ease;
+        }
+
+        .log-btn:hover span {
+            transform: translateX(5px);
+        }
+
+        .log-btn:hover {
+            box-shadow: 0px 0px 20px rgba(236, 164, 56, 0.5);
+            background: #f8a322;
+        }
+
+        .log-foot {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 22px;
+        }
+
+        .log-foot>p {
+            font-size: 14px;
+            display: flex;
+            gap: 8px;
+            color: var(--muted);
+        }
+
+        .log-foot p a {
+            text-decoration: none;
+            color: var(--pcolor);
+            font-weight: 600;
+            transition: .4s ease;
+        }
+
+        .log-foot p a:hover {
+            color: #f8a322;
+        }
+
+        .or {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin: 20px 0;
+            width: 100%;
+        }
+
+        .or::before,
+        .or::after {
+            content: "";
+            height: 1px;
+            width: 60px;
+            background: rgba(128, 128, 128, 0.3);
+        }
+
+        .or span {
+            color: var(--muted);
+            font-size: 13px;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .log-icons {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .log-icons a {
+            height: 42px;
+            width: 60px;
+            background: var(--card);
+            border: var(--border);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: .4s ease;
+            border-radius: 7px;
+        }
+
+        .log-icons a:hover {
+            background: var(--pcolor);
+            color: black;
+            border-color: var(--pcolor);
+        }
+
+        .home-btn {
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            text-decoration: none;
+            gap: 6px;
+            color: var(--muted);
+            transition: .4s ease;
+        }
+
+        .home-btn:hover {
+            color: var(--pcolor);
+        }
+
+        .home-btn span {
+            font-size: 18px;
+            color: var(--pcolor);
+        }
+
+        @media (max-width:1050px) {
+            .brand-mid h1 {
+                font-size: 30px;
+            }
+
+            .form-page {
+                padding: 42px 40px;
+            }
+
+            .brand-page {
+                padding: 40px 35px;
+            }
+        }
+
+        @media (max-width:850px) {
+            .login-page {
+                grid-template-columns: 1fr;
+            }
+
+            .input-wraper {
+                grid-template-columns: 1fr;
+            }
+
+            body {
+                padding: 15px;
+            }
+
+            .brand-page {
+                order: 1;
+                min-height: 260px;
+            }
+
+            .brand-list {
+                display: none;
+            }
+
+            .form-page {
+                order: 2;
+            }
+        }
+
+        @media (max-width:600px) {
+            .form-page {
+                padding: 32px 22px;
+            }
+
+            .brand-page {
+                padding: 30px 25px;
+                min-height: 220px;
+            }
+
+            .brand-mid {
+                margin-top: 25px;
+            }
+
+            .brand-mid h1 {
+                font-size: 24px;
+            }
+
+            .log-head h1 {
+                font-size: 26px;
+            }
+        }
+
+        .popup {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, .65);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            padding: 20px;
+        }
+
+        .popup.active {
+            display: flex;
+        }
+
+        .popup-box {
+            width: 350px;
+            background: var(--card);
+            color: #fff;
+            border-radius: 15px;
+            padding: 32px;
+            text-align: center;
+            border: var(--border);
+        }
+
+        .success {
+            font-size: clamp(40px, 5vw, 60px);
+            color: var(--pcolor);
+        }
+
+        .popup-box h2 {
+            font-size: clamp(21px, 2.5vw, 26px);
+            margin: 15px 0 10px;
+        }
+
+        .popup-box p {
+            color: var(--muted);
+            margin-bottom: 25px;
+            font-size: 14px;
+        }
+
+        .popup-box button {
+            padding: 13px 35px;
+            border: none;
+            background: var(--pcolor);
+            color: #111;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: .4s ease;
+        }
+
+        .popup-box button:hover {
+            background: #f8a322;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="popup" id="popup">
+        <div class="popup-box">
+            <span class="material-symbols-outlined success">check_circle</span>
+            <h2>Account Created Successfully!</h2>
+            <p>Your account has been created. Click below to proceed to login.</p>
+            <button id="okBtn">Go to Login</button>
+        </div>
+    </div>
+
+    <section class="login-page">
+
+        <div class="brand-page">
+            <div class="brand-top">
+                <a href="index.html" class="brand-logo">
+                    <span class="material-symbols-outlined">gavel</span>
+                    Regails
+                </a>
+            </div>
+
+            <div class="brand-mid">
+                <p class="eyebrow">Get Started</p>
+                <h1>Create Your Client Account Today.</h1>
+                <p>Register to securely access your case files, track proceedings, and receive updates directly from
+                    your legal team.</p>
+
+                <div class="brand-list">
+                    <div>
+                        <span class="material-symbols-outlined">verified_user</span>
+                        <p>Confidential, secure case access</p>
+                    </div>
+                    <div>
+                        <span class="material-symbols-outlined">description</span>
+                        <p>Track documents and proceedings</p>
+                    </div>
+                    <div>
+                        <span class="material-symbols-outlined">forum</span>
+                        <p>Direct messaging with your attorney</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-page">
+
+            <div class="log-head">
+                <h1>Create Account</h1>
+                <p>Register to securely access legal consultation services and case updates.</p>
+            </div>
+
+            <div class="form">
+
+                <div class="role-btns">
+                    <button class="role-btn active btn1" data-role="Admin">Admin</button>
+                    <button class="role-btn btn2" data-role="Client">Client</button>
+                </div>
+
+                <div class="input-wraper">
+                    <div class="form-box">
+                        <div class="inputbox">
+                            <span class="material-symbols-outlined f-icon">person</span>
+                            <input type="text" placeholder="Enter Your Name" id="log-name">
+                        </div>
+                        <p class="errormsg"></p>
+                    </div>
+
+                    <div class="form-box">
+                        <div class="inputbox">
+                            <span class="material-symbols-outlined f-icon">mail</span>
+                            <input type="email" placeholder="Enter Your Email" id="log-email">
+                        </div>
+                        <p class="errormsg"></p>
+                    </div>
+
+                    <div class="form-box">
+                        <div class="inputbox">
+                            <span class="material-symbols-outlined f-icon">lock</span>
+                            <input type="password" placeholder="Enter Your Password" id="log-pass">
+                            <span class="material-symbols-outlined passeye">visibility_off</span>
+                        </div>
+                        <p class="errormsg"></p>
+                    </div>
+
+                    <div class="form-box">
+                        <div class="inputbox">
+                            <span class="material-symbols-outlined f-icon">lock</span>
+                            <input type="password" placeholder="Confirm Your Password" id="log-conpass">
+                            <span class="material-symbols-outlined passeye">visibility_off</span>
+                        </div>
+                        <p class="errormsg"></p>
+                    </div>
+                </div>
+
+                <a href="404.html" class="forget">Forgot Password?</a>
+
+                <button class="log-btn">Create Account<span
+                        class="material-symbols-outlined">arrow_right_alt</span></button>
+
+            </div>
+
+            <div class="log-foot">
+
+                <p>Already Have an Account? <a href="login.html">Login</a></p>
+
+                <div class="or">
+                    <span>Or Continue With</span>
+                </div>
+
+                <div class="log-icons">
+                    <a href="404.html"><i class="fa-brands fa-google"></i></a>
+                    <a href="404.html"><i class="fa-brands fa-apple"></i></a>
+                    <a href="404.html"><i class="fa-brands fa-facebook"></i></a>
+                </div>
+
+                <a href="index.html" class="home-btn"><span class="material-symbols-outlined">home</span>Back to
+                    Home</a>
+            </div>
+
+        </div>
+
+    </section>
+
+    <script>
+        const nameInput = document.querySelector("#log-name");
+        const emailInput = document.querySelector("#log-email");
+        const passwordInput = document.querySelector("#log-pass");
+        const confirmPassword = document.querySelector("#log-conpass");
+
+        const loginBtn = document.querySelector(".log-btn");
+
+        const roleBtns = document.querySelectorAll(".role-btn");
+        const eyeIcons = document.querySelectorAll(".passeye");
+
+        const errorMsgs = document.querySelectorAll(".errormsg");
+
+        const popup = document.querySelector("#popup");
+        const okBtn = document.querySelector("#okBtn");
+
+        let selectedRole = "Admin";
+
+        //========================
+        // Role Selection
+        //========================
+
+        roleBtns.forEach(btn => {
+            btn.addEventListener("click", () => {
+                roleBtns.forEach(item => item.classList.remove("active"));
+                btn.classList.add("active");
+                selectedRole = btn.dataset.role;
+            });
+        });
+
+        //========================
+        // Show / Hide Password
+        //========================
+
+        eyeIcons.forEach((eye, index) => {
+            eye.addEventListener("click", () => {
+                let input = index === 0 ? passwordInput : confirmPassword;
+
+                if (input.type === "password") {
+                    input.type = "text";
+                    eye.textContent = "visibility";
+                } else {
+                    input.type = "password";
+                    eye.textContent = "visibility_off";
+                }
+            });
+        });
+
+        //========================
+        // Name Validation
+        //========================
+
+        nameInput.addEventListener("input", () => {
+            nameInput.value = nameInput.value.replace(/[^A-Za-z\s]/g, "");
+        });
+
+        //========================
+        // Signup Validation
+        //========================
+
+        loginBtn.addEventListener("click", (e) => {
+            e.preventDefault();
+
+            errorMsgs.forEach(msg => msg.textContent = "");
+
+            let valid = true;
+
+            const nameRegex = /^[A-Za-z\s]+$/;
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            // Name
+            if (nameInput.value.trim() == "") {
+                errorMsgs[0].textContent = "Name is required";
+                valid = false;
+            } else if (!nameRegex.test(nameInput.value.trim())) {
+                errorMsgs[0].textContent = "Only letters are allowed";
+                valid = false;
+            }
+
+            // Email
+            if (emailInput.value.trim() == "") {
+                errorMsgs[1].textContent = "Email is required";
+                valid = false;
+            } else if (!emailRegex.test(emailInput.value.trim())) {
+                errorMsgs[1].textContent = "Enter a valid email";
+                valid = false;
+            }
+
+            // Password
+            if (passwordInput.value.trim() == "") {
+                errorMsgs[2].textContent = "Password is required";
+                valid = false;
+            } else if (passwordInput.value.length < 6) {
+                errorMsgs[2].textContent = "Minimum 6 characters";
+                valid = false;
+            }
+
+            // Confirm Password
+            if (confirmPassword.value.trim() == "") {
+                errorMsgs[3].textContent = "Confirm your password";
+                valid = false;
+            } else if (passwordInput.value !== confirmPassword.value) {
+                errorMsgs[3].textContent = "Passwords do not match";
+                valid = false;
+            }
+
+            if (valid) {
+                popup.classList.add("active");
+
+                okBtn.addEventListener("click", () => {
+                    window.location.href = "login.html";
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

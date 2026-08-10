@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legal Consultancy - Contact Page</title>
+
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0,-50..200" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+
+        body {
+            overflow-x: hidden;
+            font-family: "Google Sans", sans-serif;
+            background: #0f0f0f;
+        }
+
+        html {
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --header1: #191919;
+            --header2: #141212;
+            --border: 1px solid rgba(128, 128, 128, 0.295);
+            --pcolor: #ECA438;
+            --dark: #101010;
+            --darker: #0a0a0a;
+            --card: #1a1a1a;
+            --muted: #b8b8b8;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--pcolor);
+            font-size: 14px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 14px;
+        }
+
+        .section-label::before {
+            content: "";
+            width: 30px;
+            height: 2px;
+            background: var(--pcolor);
+        }
+
+        /* ===== SECTION 1: PAGE BANNER ===== */
+
+        .page-banner {
+            min-height: 55vh;
+            background: linear-gradient(125deg, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.55)),
+                url("https://images.unsplash.com/photo-1589994965851-a8f479c573a9?q=80&w=1920&auto=format&fit=crop");
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 220px 20px 90px 20px;
+            gap: 18px;
+        }
+
+        .page-banner .tag {
+            font-size: clamp(13px, 1.3vw, 14px);
+            background: rgba(255, 255, 255, 0.336);
+            width: fit-content;
+            padding: 5px 20px;
+            color: white;
+        }
+
+        .page-banner h1 {
+            font-size: clamp(36px, 6vw, 68px);
+            color: white;
+        }
+
+        .page-banner h1 span {
+            color: var(--pcolor);
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #ddd;
+            font-size: 15px;
+        }
+
+        .breadcrumb a {
+            color: white;
+        }
+
+        .breadcrumb span {
+            color: var(--pcolor);
+        }
+
+        /* ===== SECTION 2: CONTACT INFO CARDS ===== */
+
+        .info-cards {
+            background: var(--dark);
+            padding: 90px 50px;
+        }
+
+        .info-cards-head {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 55px auto;
+        }
+
+        .info-cards-head h2 {
+            color: white;
+            font-size: clamp(28px, 4vw, 42px);
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .info-card {
+            background: var(--card);
+            border: var(--border);
+            border-radius: 10px;
+            padding: 35px 25px;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            transition: .4s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--pcolor);
+        }
+
+        .info-card .icon-wrap {
+            width: 55px;
+            height: 55px;
+            border-radius: 8px;
+            background: rgba(236, 164, 56, 0.12);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .info-card .icon-wrap span {
+            font-size: 26px;
+            color: var(--pcolor);
+        }
+
+        .info-card h3 {
+            color: white;
+            font-size: 19px;
+        }
+
+        .info-card p {
+            color: var(--muted);
+            font-size: 14.5px;
+            line-height: 1.6;
+        }
+
+        @media (max-width:1000px) {
+            .info-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width:600px) {
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .info-cards {
+                padding: 70px 20px;
+            }
+        }
+
+        /* ===== SECTION 3: FORM + IMAGE ===== */
+
+        .form-section {
+            background: var(--darker);
+            padding: 90px 50px;
+            display: flex;
+            gap: 60px;
+            align-items: stretch;
+        }
+
+        .form-image {
+            flex: 1;
+            border-radius: 12px;
+            overflow: hidden;
+            min-height: 560px;
+            position: relative;
+        }
+
+        .form-image img {
+            filter: saturate(0.9);
+        }
+
+        .form-image::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(0deg, rgba(0, 0, 0, 0.6), transparent 40%);
+        }
+
+        .form-image-caption {
+            position: absolute;
+            bottom: 25px;
+            left: 25px;
+            z-index: 1;
+            color: white;
+        }
+
+        .form-image-caption h4 {
+            font-size: 22px;
+        }
+
+        .form-image-caption p {
+            font-size: 14px;
+            color: #ddd;
+        }
+
+        .form-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .form-content h2 {
+            color: white;
+            font-size: clamp(28px, 4vw, 40px);
+            margin-bottom: 15px;
+        }
+
+        .form-content>p {
+            color: var(--muted);
+            margin-bottom: 30px;
+            line-height: 1.6;
+            max-width: 550px;
+        }
+
+        .contact-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
+
+        .contact-form .full {
+            grid-column: 1 / 3;
+        }
+
+        .contact-form input,
+        .contact-form select,
+        .contact-form textarea {
+            width: 100%;
+            padding: 16px 18px;
+            background: var(--card);
+            border: var(--border);
+            color: white;
+            font-size: 14px;
+            font-family: inherit;
+            border-radius: 6px;
+        }
+
+        .contact-form textarea {
+            resize: vertical;
+            min-height: 130px;
+        }
+
+        .contact-form input:focus,
+        .contact-form select:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: var(--pcolor);
+        }
+
+        .contact-form input::placeholder,
+        .contact-form textarea::placeholder {
+            color: #888;
+        }
+
+        .submit-btn {
+            grid-column: 1 / 3;
+            padding: 17px 30px;
+            font-size: 15px;
+            border: none;
+            background: var(--pcolor);
+            font-weight: 600;
+            border-radius: 7px;
+            width: fit-content;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: .5s ease;
+            cursor: pointer;
+        }
+
+        .submit-btn:hover {
+            box-shadow: 1px 1px 20px rgba(184, 135, 11, 0.61);
+            background: #f8a322;
+        }
+
+        @media (max-width:1000px) {
+            .form-section {
+                flex-direction: column;
+                padding: 70px 20px;
+            }
+
+            .form-image {
+                min-height: 320px;
+            }
+        }
+
+        @media (max-width:560px) {
+            .contact-form {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-form .full,
+            .submit-btn {
+                grid-column: 1 / 2;
+            }
+        }
+
+        /* ===== SECTION 4: MAP / LOCATIONS ===== */
+
+        .map-section {
+            background: var(--dark);
+            padding: 90px 50px;
+        }
+
+        .map-head {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 50px auto;
+        }
+
+        .map-head h2 {
+            color: white;
+            font-size: clamp(28px, 4vw, 42px);
+        }
+
+        .map-wrap {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.4fr 1fr;
+            gap: 25px;
+            align-items: stretch;
+        }
+
+        .map-frame {
+            border-radius: 12px;
+            overflow: hidden;
+            min-height: 420px;
+            border: var(--border);
+        }
+
+        .map-frame iframe {
+            width: 100%;
+            height: 100%;
+            min-height: 420px;
+            border: 0;
+            filter: invert(90%) hue-rotate(180deg) contrast(90%);
+        }
+
+        .office-list {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .office-item {
+            background: var(--card);
+            border: var(--border);
+            border-radius: 10px;
+            padding: 22px;
+            display: flex;
+            gap: 16px;
+            transition: .4s ease;
+        }
+
+        .office-item:hover {
+            border-color: var(--pcolor);
+        }
+
+        .office-item .icon-wrap {
+            width: 45px;
+            min-width: 45px;
+            height: 45px;
+            border-radius: 8px;
+            background: rgba(236, 164, 56, 0.12);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .office-item .icon-wrap span {
+            color: var(--pcolor);
+            font-size: 22px;
+        }
+
+        .office-item h4 {
+            color: white;
+            font-size: 17px;
+            margin-bottom: 6px;
+        }
+
+        .office-item p {
+            color: var(--muted);
+            font-size: 13.5px;
+            line-height: 1.5;
+        }
+
+        @media (max-width:1000px) {
+            .map-wrap {
+                grid-template-columns: 1fr;
+            }
+
+            .map-section {
+                padding: 70px 20px;
+            }
+        }
+
+        /* ===== SECTION 5: FAQ ===== */
+
+        .faq-section {
+            background: var(--darker);
+            padding: 90px 50px;
+            display: flex;
+            gap: 60px;
+        }
+
+        .faq-left {
+            flex: 1;
+        }
+
+        .faq-left h2 {
+            color: white;
+            font-size: clamp(28px, 4vw, 42px);
+            margin-bottom: 18px;
+        }
+
+        .faq-left p {
+            color: var(--muted);
+            line-height: 1.7;
+            max-width: 480px;
+            margin-bottom: 30px;
+        }
+
+        .faq-left img {
+            border-radius: 12px;
+            max-height: 260px;
+        }
+
+        .faq-right {
+            flex: 1.3;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .faq-item {
+            background: var(--card);
+            border: var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px 22px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            color: white;
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .faq-question span.material-symbols-outlined {
+            color: var(--pcolor);
+            transition: .4s ease;
+        }
+
+        .faq-item.active .faq-question span.material-symbols-outlined {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height .4s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+        }
+
+        .faq-answer p {
+            padding: 0 22px 20px 22px;
+            color: var(--muted);
+            font-size: 14.5px;
+            line-height: 1.6;
+        }
+
+        @media (max-width:1000px) {
+            .faq-section {
+                flex-direction: column;
+                padding: 70px 20px;
+            }
+        }
+
+        /* ===== SECTION 6: CTA / CONSULTATION ===== */
+
+        .cta-section {
+            position: relative;
+            padding: 110px 50px;
+            background: linear-gradient(120deg, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.6)),
+                url("https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=1920&auto=format&fit=crop");
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+        }
+
+        .cta-section .inner {
+            max-width: 700px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 18px;
+        }
+
+        .cta-section h2 {
+            color: white;
+            font-size: clamp(28px, 4.5vw, 46px);
+        }
+
+        .cta-section h2 span {
+            color: var(--pcolor);
+        }
+
+        .cta-section p {
+            color: #ddd;
+            line-height: 1.6;
+        }
+
+        .cta-btns {
+            display: flex;
+            gap: 18px;
+            margin-top: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .cta-btn-primary,
+        .cta-btn-secondary {
+            padding: 17px 32px;
+            font-size: 15px;
+            font-weight: 600;
+            border-radius: 7px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: .5s ease;
+            cursor: pointer;
+        }
+
+        .cta-btn-primary {
+            background: var(--pcolor);
+            border: none;
+            color: black;
+        }
+
+        .cta-btn-primary:hover {
+            box-shadow: 1px 1px 20px rgba(184, 135, 11, 0.61);
+            background: #f8a322;
+        }
+
+        .cta-btn-secondary {
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            color: white;
+        }
+
+        .cta-btn-secondary:hover {
+            border-color: var(--pcolor);
+            color: var(--pcolor);
+        }
+
+        @media (max-width:600px) {
+            .cta-section {
+                padding: 80px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- SECTION 1: PAGE BANNER -->
+    <section class="page-banner">
+        <p class="tag">Get In Touch</p>
+        <h1>Contact <span>Regails</span></h1>
+        <div class="breadcrumb">
+            <a href="index.html">Home</a>
+            <span>/</span>
+            <p>Contact</p>
+        </div>
+    </section>
+
+    <!-- SECTION 2: CONTACT INFO CARDS -->
+    <section class="info-cards">
+        <div class="info-cards-head">
+            <p class="section-label" style="justify-content:center;">Reach Us</p>
+            <h2>Multiple Ways To Connect With Our Team</h2>
+        </div>
+
+        <div class="info-grid">
+            <div class="info-card">
+                <div class="icon-wrap"><span class="material-symbols-outlined">call</span></div>
+                <h3>Call Us</h3>
+                <p>+91 12345 09876<br>+91 12345 67898</p>
+            </div>
+
+            <div class="info-card">
+                <div class="icon-wrap"><span class="material-symbols-outlined">mail</span></div>
+                <h3>Email Us</h3>
+                <p>admin@gmail.com<br>support@regails.com</p>
+            </div>
+
+            <div class="info-card">
+                <div class="icon-wrap"><span class="material-symbols-outlined">location_on</span></div>
+                <h3>Visit Office</h3>
+                <p>4th Floor, Anna Salai,<br>Chennai, Tamil Nadu</p>
+            </div>
+
+            <div class="info-card">
+                <div class="icon-wrap"><span class="material-symbols-outlined">schedule</span></div>
+                <h3>Office Hours</h3>
+                <p>Mon - Fri: 9:00 - 6:00<br>Sat: 10:00 - 2:00</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: FORM + IMAGE -->
+    <section class="form-section">
+        <div class="form-image">
+            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1200&auto=format&fit=crop"
+                alt="Legal consultation meeting">
+            <div class="form-image-caption">
+                <h4>Free First Consultation</h4>
+                <p>Sit with our attorneys, no obligation.</p>
+            </div>
+        </div>
+
+        <div class="form-content">
+            <p class="section-label">Send A Message</p>
+            <h2>Tell Us About Your Case</h2>
+            <p>Fill out the form below with a few details about your legal matter and our team will get back to you
+                within one business day.</p>
+
+            <form class="contact-form">
+                <input type="text" placeholder="Full Name">
+                <input type="tel" placeholder="Phone Number">
+                <input type="email" placeholder="Email Address" class="full">
+                <select class="full">
+                    <option>Select Practice Area</option>
+                    <option>Corporate Law</option>
+                    <option>Employment Law</option>
+                    <option>Real Estate Law</option>
+                    <option>Family Law</option>
+                    <option>Litigation Support</option>
+                </select>
+                <textarea placeholder="Describe your case briefly" class="full"></textarea>
+                <button type="button" class="submit-btn">Submit Request <span
+                        class="material-symbols-outlined">arrow_forward</span></button>
+            </form>
+        </div>
+    </section>
+
+    <!-- SECTION 4: MAP / OFFICE LOCATIONS -->
+    <section class="map-section">
+        <div class="map-head">
+            <p class="section-label" style="justify-content:center;">Find Us</p>
+            <h2>Our Office Locations</h2>
+        </div>
+
+        <div class="map-wrap">
+            <div class="map-frame">
+                <iframe
+                    src="https://www.openstreetmap.org/export/embed.html?bbox=80.2200%2C13.0300%2C80.2900%2C13.0900&layer=mapnik&marker=13.0600%2C80.2500"
+                    loading="lazy"></iframe>
+            </div>
+
+            <div class="office-list">
+                <div class="office-item">
+                    <div class="icon-wrap"><span class="material-symbols-outlined">apartment</span></div>
+                    <div>
+                        <h4>Chennai Head Office</h4>
+                        <p>4th Floor, Anna Salai, Chennai, Tamil Nadu - 600002</p>
+                    </div>
+                </div>
+
+                <div class="office-item">
+                    <div class="icon-wrap"><span class="material-symbols-outlined">business_center</span></div>
+                    <div>
+                        <h4>Corporate Wing</h4>
+                        <p>Regails Tower, OMR Road, Chennai, Tamil Nadu - 600097</p>
+                    </div>
+                </div>
+
+                <div class="office-item">
+                    <div class="icon-wrap"><span class="material-symbols-outlined">support_agent</span></div>
+                    <div>
+                        <h4>Client Support Desk</h4>
+                        <p>Available Mon - Sat for walk-in consultations</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: FAQ -->
+    <section class="faq-section">
+        <div class="faq-left">
+            <p class="section-label">FAQs</p>
+            <h2>Questions Before You Reach Out</h2>
+            <p>Answers to what clients usually ask before booking their first legal consultation with our firm.</p>
+            <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=800&auto=format&fit=crop"
+                alt="Law office desk">
+        </div>
+
+        <div class="faq-right">
+            <div class="faq-item active">
+                <div class="faq-question">How soon will I get a response?
+                    <span class="material-symbols-outlined">add</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Our team responds to every enquiry within one business day, and urgent matters are prioritised
+                        the same day.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Is the first consultation free?
+                    <span class="material-symbols-outlined">add</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes, the first consultation is complimentary and helps us understand your case before
+                        proposing next steps.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Do you handle cases outside Chennai?
+                    <span class="material-symbols-outlined">add</span>
+                </div>
+                <div class="faq-answer">
+                    <p>We represent clients across Tamil Nadu and coordinate with partner firms for matters in other
+                        states.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">What documents should I bring?
+                    <span class="material-symbols-outlined">add</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Bring any contracts, notices, or correspondence related to your matter so we can assess it
+                        accurately.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Can I request a specific attorney?
+                    <span class="material-symbols-outlined">add</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Absolutely, mention your preference in the form and we will do our best to match you with
+                        them.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 6: CTA -->
+    <section class="cta-section">
+        <div class="inner">
+            <h2>Ready To Discuss Your <span>Legal Matter?</span></h2>
+            <p>Book a one-on-one appointment with our attorneys and get clear, actionable guidance for your case.</p>
+            <div class="cta-btns">
+                <button class="cta-btn-primary">Book Appointment <span
+                        class="material-symbols-outlined">arrow_forward</span></button>
+                <button class="cta-btn-secondary">Call +91 12345 09876</button>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.querySelectorAll(".faq-item").forEach((item) => {
+            item.querySelector(".faq-question").addEventListener("click", () => {
+                let isActive = item.classList.contains("active");
+                document.querySelectorAll(".faq-item").forEach((i) => i.classList.remove("active"));
+                if (!isActive) item.classList.add("active");
+            });
+        });
+    </script>
+
+</body>
+
+</html>
