@@ -13,7 +13,176 @@
         integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+    <link
+        href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap"
+        rel="stylesheet">
+
     <link rel="stylesheet" href="style.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            overflow-x: hidden;
+        }
+
+        html {
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        .hero-section {
+            min-height: 100vh;
+            background: linear-gradient(125deg, rgba(0, 0, 0, 0.603), rgba(0, 0, 0, 0.473)), url("./src/hero-bg2.webp");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: top center;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 200px 50px 70px 50px;
+            gap: 40px;
+
+        }
+
+        .hero-text .hero-title {
+            font-size: clamp(13px,1.3vw,14px);
+            background: rgba(255, 255, 255, 0.336);
+            width: fit-content;
+            padding: 5px 20px;
+            color: white;
+        }
+
+        .hero-text h1 {
+            font-size: clamp(30px,6vw,80px);
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        .hero-text .hero-para {
+            font-size: clamp(14px,1.5vw,16px);
+            color: white;
+            max-width: 600px;
+            line-height: 1.5;
+            margin-bottom: 24px;
+        }
+
+        .hero-btn {
+            padding: 15px 30px;
+            font-size: 15px;
+            border: none;
+            margin-bottom: 20px;
+        }
+
+        .hero-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 30px;
+
+
+        }
+
+        .bottom-left {
+            display: flex;
+            gap: 35px;
+        }
+
+
+        .bottom-left div {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .bottom-left div span {
+            font-size: clamp(30px,4vw,50px);
+            color: white;
+        }
+
+        .bottom-left div h3 {
+            font-size: clamp(16px,1.8vw,22px);
+            color: white;
+        }
+
+        .bottom-right {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+        }
+
+        .bottom-right div h4 {
+            color: white;
+            margin-bottom: 5px;
+            text-align: end;
+            font-size: 16px;
+        }
+
+        .bottom-right div p {
+            color: white;
+            font-size: 13px;
+
+        }
+
+        .hero-foot-images {
+            display: flex;
+
+        }
+
+        .hero-foot-images img {
+            height: 40px;
+            width: 40px;
+            border-radius: 50%;
+            margin-left: -7px;
+        }
+
+        @media (max-width:900px) {
+                    .hero-bottom{
+                        flex-direction: column;
+                    }
+
+                     .bottom-left div {
+                        justify-content: center;
+                        text-align: center;
+                     }
+
+                     .hero-text{
+                        text-align: center;
+                     }
+
+                     .hero-text .hero-title{
+                        margin: 0 auto;
+                     }
+
+                     .hero-text .hero-para{
+                        margin: 20px auto;
+                     }
+
+
+
+                     .bottom-right div{
+                        text-align: center;
+                     }
+                          .bottom-right div h4{
+                            text-align: center;
+                          }
+        }
+
+        @media (max-width:600px) {
+                .hero-section{
+                      padding: 200px 10px 70px 10px;
+                }
+
+                 .bottom-left{
+                    gap: 15px;
+                }
+        }
+    </style>
 </head>
 
 <body>
@@ -46,7 +215,7 @@
             <div class="nav-container">
 
                 <div class="sidebar-logo-container">
-                   
+
                     <a href=""><img src="./src/logo.webp" alt="" class="s-logo"></a>
                     <span class="material-symbols-outlined close-btn">close</span>
                 </div>
@@ -75,6 +244,58 @@
         </div>
 
     </header>
+
+    <section class="hero-section">
+
+        <div class="hero-text">
+            <p class="hero-title">Welcome to Regails</p>'
+            <h1>Strategic Legal <br> Solutions. Trusted</h1>
+            <p class="hero-para">We provide trusted legal representation with a strategic approach, delivering clear
+                guidance, strong
+                advocacy, and reliable solutions for individuals and businesses seeking justice, protection, and
+                long-term
+                legal confidence</p>
+            <button class="hero-btn">Book a Appointment</button>
+        </div>
+
+
+        <div class="hero-bottom">
+
+
+            <div class="bottom-left">
+                <div>
+                    <span class="material-symbols-outlined">gavel</span>
+                    <h3>Corporate Law</h3>
+                </div>
+
+                <div>
+                    <span class="material-symbols-outlined">balance</span>
+                    <h3>Employment Law</h3>
+                </div>
+
+                <div>
+                    <span class="material-symbols-outlined">home</span>
+                    <h3>Real Estate Law</h3>
+                </div>
+            </div>
+
+            <div class="bottom-right">
+
+
+                <div>
+                    <h4>2300+</h4>
+                    <p>Satisfied Clients</p>
+                </div>
+                <div class="hero-foot-images">
+                    <img src="./src/team1-1.webp" alt="">
+                    <img src="./src/team1-2.webp" alt="">
+                    <img src="./src/team1-3.webp" alt="">
+                </div>
+
+            </div>
+        </div>
+
+    </section>
 
     <script src="script.js"></script>
 </body>

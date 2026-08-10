@@ -7,11 +7,13 @@
 .header {
     display: flex;
     flex-direction: column;
-    background: green;
+    position: fixed;
+    width: 100%;
 }
 
 body {
     overflow-x: hidden;
+    font-family: "Google Sans", sans-serif;
 }
 
 html {
@@ -31,8 +33,11 @@ html {
     align-items: center;
     justify-content: space-between;
     border-bottom: var(--border);
-    background: var(--header1);
     padding: 10px 30px;
+}
+
+.header.active .header1 {
+    background: var(--header1);
 }
 
 
@@ -59,7 +64,7 @@ html {
 
 .nav-time,
 .nav-contact-details a {
-    font-size: 18px;
+    font-size: 15px;
 }
 
 .nav-time a span,
@@ -88,8 +93,12 @@ html {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: var(--header2);
     padding: 10px 30px;
+    border-bottom: var(--border);
+}
+
+.header.active .header2 {
+    background: var(--header2);
 }
 
 .header2 a span {
@@ -174,9 +183,9 @@ html {
         transform: translateX(-100%);
     }
 
-      .nav-container.active{
+    .nav-container.active {
         transform: translateX(0);
-      }
+    }
 
     .sidebar-logo-container {
         display: flex;
@@ -210,6 +219,7 @@ html {
 
     .menu-btn {
         display: block;
+        font-size: 22px;
     }
 
     .search-sections {
@@ -252,7 +262,7 @@ html {
     }
 }
 
-@media (max-width:650px) {
+@media (max-width:690px) {
     .nav-time {
         display: none;
     }
@@ -273,7 +283,7 @@ html {
     }
 
     .nav-contact-details a {
-        font-size: 14px;
+        font-size: 13px;
     }
 
     .nav-contact-details a span {
