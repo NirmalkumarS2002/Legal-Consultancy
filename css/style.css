@@ -431,6 +431,7 @@ html {
     padding: 20px;
     width: 100%;
     background: var(--pcolor);
+    z-index: 9999;
 }
 
 .newsletter-wrap h1 {
@@ -461,6 +462,7 @@ html {
     color: white;
 }
 
+
 .footer-form #footer-mail:focus {
     outline: none;
     border: 1px solid white;
@@ -471,6 +473,7 @@ html {
     text-transform: uppercase;
     font-weight: 500;
     border: 1px solid white;
+    cursor: pointer;
 }
 
 
