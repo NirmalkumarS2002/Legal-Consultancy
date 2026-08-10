@@ -9,6 +9,7 @@
     flex-direction: column;
     position: fixed;
     width: 100%;
+    z-index: 9999;
 }
 
 body {
@@ -146,10 +147,13 @@ html {
     background: var(--pcolor);
     border-radius: 7px;
     font-size: 20px;
+    color: black !important;
+    font-weight: 600;
 }
 
 .login-btn span {
-    color: #191919 !important;
+    color: black !important;
+    font-weight: 600;
 }
 
 .menu-btn {
@@ -181,6 +185,7 @@ html {
         width: 320px;
         transition: .6s ease;
         transform: translateX(-100%);
+        z-index: 9999;
     }
 
     .nav-container.active {
@@ -288,6 +293,227 @@ html {
 
     .nav-contact-details a span {
         font-size: 16px;
+    }
+
+}
+
+/* footer */
+
+
+/* footer */
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(black, rgba(0, 0, 0, 0.692)), url("../src/footer-bg.webp") center/cover no-repeat;
+    position: relative;
+    z-index: 1;
+
+
+}
+
+.footer::before {
+    position: absolute;
+    content: "";
+    height: 100%;
+    width: 100%;
+    inset: 0;
+    background: url("../src/footer-bg.webp") center/cover no-repeat;
+    opacity: 0.05;
+}
+
+.footer>div {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding-block: 50px;
+    z-index: 1;
+}
+
+.newsletter-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    width: 100%;
+    background: var(--pcolor);
+}
+
+.newsletter-wrap h1 {
+    font-size: clamp(50px, 6vw, 70px);
+    color: white;
+}
+
+.newsletter-wrap h6 {
+    font-size: clamp(14px, 1.5vw, 16px);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.footer-form {
+    display: flex;
+    gap: 5px;
+    max-width: 600px;
+    width: 100%;
+}
+
+.footer-form #footer-mail {
+    padding: 20px 30px;
+    width: 100%;
+    background: black;
+    border: none;
+    font-size: 14px;
+    color: white;
+}
+
+.footer-form .footer-btn {
+    padding: 20px 30px;
+    text-transform: uppercase;
+    font-weight: 500;
+    border: 1px solid black;
+}
+
+
+.footer-form .footer-btn:hover {
+    background: rgba(0, 0, 0, 0.856);
+    color: white;
+}
+
+
+
+.footer-main {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 25px;
+    padding: 20px;
+}
+
+.foot1 {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-logo {
+    width: 160px;
+    margin-bottom: 15px;
+}
+
+.foot1 p {
+    font-size: 16px;
+    margin-bottom: 25px;
+    line-height: 1.5;
+    color: white;
+}
+
+.footer-icons {
+    display: flex;
+    gap: 10px;
+}
+
+.footer-icons a {
+    font-size: 25px;
+    color: white;
+    background: var(--header2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    min-height: 45px;
+    border: var(--border);
+    border-radius: 7px;
+    width: 45px;
+    gap: 15px;
+    transition: .6s ease;
+    color: var(--pcolor);
+
+}
+
+.footer-icons a:hover {
+    color: var(--pcolor);
+    transform: rotate(360deg) scale(1.1);
+    box-shadow: 1px 1px 10px darkgoldenrod;
+}
+
+.foot2 {
+    display: flex;
+    flex-direction: column;
+}
+
+.foot2 h2 {
+    font-size: 25px;
+    margin-bottom: 20px;
+    color: var(--pcolor);
+}
+
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.footer-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    transition: .6s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-links a span {
+    font-size: 20px;
+    color: var(--pcolor);
+}
+
+.footer-links a:hover {
+    color: var(--pcolor);
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    width: 100%;
+    border-top: 1px solid gray;
+}
+
+.footer-bottom p {
+    color: white;
+}
+
+.footer-bottom div {
+    color: white;
+}
+
+.footer-bottom div a {
+    color: white;
+    text-decoration: none;
+    transition: .6s ease;
+}
+
+.footer-bottom div a:hover {
+    color: var(--pcolor);
+}
+
+@media (max-width:1000px) {
+
+    .footer-main {
+        grid-template-columns: 1fr 1fr;
+    }
+
+}
+
+@media (max-width:600px) {
+    .footer-main {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
     }
 
 }

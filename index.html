@@ -17,13 +17,20 @@
         href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap"
         rel="stylesheet">
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./css/style.css">
 
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+        }
+
+        :root {
+            --header1: #191919;
+            --header2: #141212;
+            --border: 1px solid rgba(128, 128, 128, 0.295);
+            --pcolor: #ECA438;
         }
 
         body {
@@ -51,7 +58,7 @@
         }
 
         .hero-text .hero-title {
-            font-size: clamp(13px,1.3vw,14px);
+            font-size: clamp(13px, 1.3vw, 14px);
             background: rgba(255, 255, 255, 0.336);
             width: fit-content;
             padding: 5px 20px;
@@ -59,13 +66,13 @@
         }
 
         .hero-text h1 {
-            font-size: clamp(30px,6vw,80px);
+            font-size: clamp(30px, 6vw, 80px);
             color: white;
             margin-bottom: 10px;
         }
 
         .hero-text .hero-para {
-            font-size: clamp(14px,1.5vw,16px);
+            font-size: clamp(14px, 1.5vw, 16px);
             color: white;
             max-width: 600px;
             line-height: 1.5;
@@ -74,9 +81,12 @@
 
         .hero-btn {
             padding: 15px 30px;
-            font-size: 15px;
+            font-size: 16px;
             border: none;
             margin-bottom: 20px;
+            background: var(--pcolor);
+            font-weight: 600;
+            border-radius: 7px;
         }
 
         .hero-bottom {
@@ -101,12 +111,12 @@
         }
 
         .bottom-left div span {
-            font-size: clamp(30px,4vw,50px);
+            font-size: clamp(30px, 4vw, 50px);
             color: white;
         }
 
         .bottom-left div h3 {
-            font-size: clamp(16px,1.8vw,22px);
+            font-size: clamp(16px, 1.8vw, 22px);
             color: white;
         }
 
@@ -142,45 +152,46 @@
         }
 
         @media (max-width:900px) {
-                    .hero-bottom{
-                        flex-direction: column;
-                    }
+            .hero-bottom {
+                flex-direction: column;
+            }
 
-                     .bottom-left div {
-                        justify-content: center;
-                        text-align: center;
-                     }
+            .bottom-left div {
+                justify-content: center;
+                text-align: center;
+            }
 
-                     .hero-text{
-                        text-align: center;
-                     }
+            .hero-text {
+                text-align: center;
+            }
 
-                     .hero-text .hero-title{
-                        margin: 0 auto;
-                     }
+            .hero-text .hero-title {
+                margin: 0 auto;
+            }
 
-                     .hero-text .hero-para{
-                        margin: 20px auto;
-                     }
+            .hero-text .hero-para {
+                margin: 20px auto;
+            }
 
 
 
-                     .bottom-right div{
-                        text-align: center;
-                     }
-                          .bottom-right div h4{
-                            text-align: center;
-                          }
+            .bottom-right div {
+                text-align: center;
+            }
+
+            .bottom-right div h4 {
+                text-align: center;
+            }
         }
 
         @media (max-width:600px) {
-                .hero-section{
-                      padding: 200px 10px 70px 10px;
-                }
+            .hero-section {
+                padding: 200px 10px 70px 10px;
+            }
 
-                 .bottom-left{
-                    gap: 15px;
-                }
+            .bottom-left {
+                gap: 15px;
+            }
         }
     </style>
 </head>
@@ -249,13 +260,13 @@
 
         <div class="hero-text">
             <p class="hero-title">Welcome to Regails</p>'
-            <h1>Strategic Legal <br> Solutions. Trusted</h1>
+           <h1>Expert Legal Advice. <br> Trusted Solutions.</h1>
             <p class="hero-para">We provide trusted legal representation with a strategic approach, delivering clear
                 guidance, strong
                 advocacy, and reliable solutions for individuals and businesses seeking justice, protection, and
                 long-term
                 legal confidence</p>
-            <button class="hero-btn">Book a Appointment</button>
+            <button class="hero-btn">Book a Appointment </button>
         </div>
 
 
@@ -296,6 +307,99 @@
         </div>
 
     </section>
+
+        <footer class="footer">
+
+        <div class="newsletter-wrap">
+            <h1>Newsletter</h1>
+            <h6>Stay updated</h6>
+
+            <div class="footer-form">
+                <input type="email" placeholder="Email Address" id="footer-mail">
+                <button class="footer-btn">Subscribe</button>
+            </div>
+        </div>
+
+        <div class="footer-main">
+            <div class="foot1">
+                <a href="index.html"><img src="./src/logo.webp" alt="company Logo" class="footer-logo"></a>
+
+               <p>Trusted legal guidance and effective solutions tailored to protect your rights and interests.</p>
+
+                <div class="footer-icons">
+                    <a href="404.html"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="404.html"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="404.html"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="404.html"><i class="fa-brands fa-x-twitter"></i></a>
+                </div>
+            </div>
+
+            <div class="foot2">
+                <h2>Quick Links</h2>
+
+                <div class="footer-links">
+
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="service.html">Services</a>
+                    <a href="blog.html">Blogs</a>
+                    <a href="contact.html">Contact</a>
+
+                </div>
+            </div>
+
+          <div class="foot2">
+    <h2>Services</h2>
+
+    <div class="footer-links">
+        <a href="404.html">Corporate Law</a>
+        <a href="404.html">Employment Law</a>
+        <a href="404.html">Real Estate Law</a>
+        <a href="404.html">Business Advisory</a>
+        <a href="404.html">Legal Consultation</a>
+    </div>
+</div>
+
+
+<div class="foot2">
+
+    <h2>Support us</h2>
+
+    <div class="footer-links">
+        <a href="404.html">Contract Law</a>
+        <a href="404.html">Family Law</a>
+        <a href="404.html">Property Disputes</a>
+        <a href="404.html">Litigation Support</a>
+        <a href="404.html">Dispute Resolution</a>
+    </div>
+
+</div>
+
+            <div class="foot2">
+                <h2>Address</h2>
+
+                <div class="footer-links">
+
+            
+                    <a href="404.html"> <span class="material-symbols-outlined">call</span>+91 12345 67898</a>
+                    <a href="404.html"><span class="material-symbols-outlined">mail</span>admin@gmail.com</a>
+                    <a href="404.html"><span class="material-symbols-outlined">location_on</span>Chennai, Tamilnadu</a>
+
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>Copyright @ 2026 All rights Reserved</p>
+
+            <div>
+                <a href="404.html">Terms & condition</a> | <a href="404.html">Privacy</a>
+            </div>
+        </div>
+
+    </footer>
 
     <script src="script.js"></script>
 </body>
