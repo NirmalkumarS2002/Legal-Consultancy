@@ -22,3 +22,12 @@ window.addEventListener("scroll",()=>{
         header.classList.remove("active")
     }
 })
+
+//errorpage
+
+let errorpage=document.querySelectorAll(".errorpage")
+errorpage.forEach((error)=>{
+   error.addEventListener("click",()=>{
+    window.location.href="404.html"
+   })
+})
