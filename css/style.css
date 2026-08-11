@@ -622,36 +622,74 @@ html {
 
 
 }
+.hero-btn {
+    position: relative;
+    overflow: hidden;
 
-/* hero btns */
+    padding: 17px 30px;
+    font-size: 15px;
+    border: none;
+    margin-bottom: 20px;
 
-  .hero-btn {
-            padding: 17px 30px;
-            font-size: 15px;
-            border: none;
-            margin-bottom: 20px;
-            background: var(--pcolor);
-            font-weight: 600;
-            border-radius: 7px;
+    background: var(--pcolor);
+    font-weight: 600;
+    border-radius: 7px;
 
-            display: flex ;
-            align-items: center ;
-            gap: 10px;
-            transition: .5s ease;
-        }
+    display: flex;
+    align-items: center;
+    gap: 10px;
 
-         .hero-btn:hover span{
-            transform: translateX(5px);
-         }
+    cursor: pointer;
+    transition: box-shadow 0.4s ease;
+}
 
-           .hero-btn:hover{
-            box-shadow: 1px 1px 20px rgba(184, 135, 11, 0.61);
-            background: #f8a322;
-           }
+/* Shine */
+.hero-btn::before {
+    content: "";
+    position: absolute;
 
-        
-        .hero-btn span{
-            font-size: 20px;
-            transition: .5s ease;
-            color: black ;
-        }
+    top: 0;
+    left: -120%;
+
+    width: 70%;
+    height: 100%;
+
+    background: linear-gradient(
+        110deg,
+        transparent 0%,
+        transparent 35%,
+        rgba(255, 255, 255, 0.15) 45%,
+        rgba(255, 255, 255, 0.75) 50%,
+        rgba(255, 255, 255, 0.15) 55%,
+        transparent 65%,
+        transparent 100%
+    );
+
+    transform: skewX(-20deg);
+    transition: left 0.7s ease;
+
+    pointer-events: none;
+}
+
+/* Shine animation */
+.hero-btn:hover::before {
+    left: 140%;
+}
+
+/* Soft glow */
+.hero-btn:hover {
+    box-shadow:
+        0 0 10px rgba(248, 163, 34, 0.35),
+        0 0 25px rgba(248, 163, 34, 0.25);
+}
+
+/* Arrow */
+.hero-btn span {
+    font-size: 20px;
+    color: black;
+    transition: transform 0.4s ease;
+}
+
+.hero-btn:hover span {
+    transform: translateX(6px);
+}
