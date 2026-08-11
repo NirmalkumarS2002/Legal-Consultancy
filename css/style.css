@@ -753,3 +753,156 @@ html {
     color: black;
     font-size: 13px;
 }
+
+/* loader */
+
+ /* ================= LOADER ================= */
+
+        .loader-screen {
+            position: fixed;
+            inset: 0;
+            width: 100%;
+            height: 100vh;
+            background: var(--header2);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 99999;
+            transition: opacity .8s ease, visibility .8s ease;
+            overflow: hidden;
+        }
+
+        .loader-screen.hide {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        /* soft ambient glow in the background */
+        .loader-screen::before {
+            content: "";
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(236, 164, 56, 0.15), transparent 70%);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: glowPulse 4s ease-in-out infinite;
+        }
+
+        @keyframes glowPulse {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: .7; }
+            50% { transform: translate(-50%, -50%) scale(1.15); opacity: 1; }
+        }
+
+        /* logo + spinning ring */
+        .loader-logo-wrap {
+            position: relative;
+            height: 110px;
+            width: 110px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 35px;
+        }
+
+        .loader-logo-wrap::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            border: 3px solid rgba(236, 164, 56, 0.15);
+        }
+
+        .loader-ring {
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            border: 3px solid transparent;
+            border-top-color: var(--pcolor);
+            border-right-color: var(--pcolor);
+            animation: ringSpin 1.4s linear infinite;
+        }
+
+        @keyframes ringSpin {
+            to { transform: rotate(360deg); }
+        }
+
+        .loader-logo-icon {
+            font-size: 40px;
+            color: var(--pcolor);
+            animation: iconPulse 1.6s ease-in-out infinite;
+        }
+
+        @keyframes iconPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.12); }
+        }
+
+        .loader-brand {
+            font-size: 26px;
+            font-weight: 700;
+            color: white;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            opacity: 0;
+            animation: fadeInUp .7s ease forwards;
+            animation-delay: .2s;
+        }
+
+        .loader-brand span {
+            color: var(--pcolor);
+        }
+
+        .loader-tagline {
+            font-size: 14px;
+            color: #9a9a9a;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 40px;
+            opacity: 0;
+            animation: fadeInUp .7s ease forwards;
+            animation-delay: .35s;
+        }
+
+        /* progress bar */
+        .loader-bar-track {
+            width: 260px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            opacity: 0;
+            animation: fadeInUp .7s ease forwards;
+            animation-delay: .5s;
+        }
+
+        .loader-bar-fill {
+            height: 100%;
+            width: 0%;
+            background: var(--pcolor);
+            border-radius: 10px;
+            transition: width .25s ease-out;
+        }
+
+        .loader-percent {
+            margin-top: 14px;
+            font-size: 13px;
+            color: #b8b8b8;
+            letter-spacing: 1px;
+            opacity: 0;
+            animation: fadeInUp .7s ease forwards;
+            animation-delay: .6s;
+        }
+
+        .loader-percent span {
+            color: var(--pcolor);
+            font-weight: 600;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }

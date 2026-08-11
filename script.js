@@ -90,3 +90,34 @@ footerBtn.addEventListener("click", (e) => {
         ferror.textContent = "";
     }, 3000);
 });
+
+//load
+
+const loader = document.getElementById("pageLoader");
+        const barFill = document.getElementById("loaderBarFill");
+        const percentNum = document.getElementById("loaderPercentNum");
+
+        let progress = 0;
+
+        function updateProgress() {
+            // random-ish increment so it doesn't feel robotic
+            progress += Math.random() * 12 + 4;
+            if (progress >= 100) {
+                progress = 100;
+            }
+
+            barFill.style.width = progress + "%";
+            percentNum.textContent = Math.floor(progress);
+
+            if (progress < 100) {
+                setTimeout(updateProgress, 180);
+            } else {
+                setTimeout(() => {
+                    loader.classList.add("hide");
+                }, 400);
+            }
+        }
+
+        window.addEventListener("load", () => {
+            updateProgress();
+        });
