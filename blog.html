@@ -234,6 +234,8 @@
 
     .blog-card-body {
         padding: 24px;
+        display: flex;
+        flex-direction: column;
     }
 
     .blog-card-cat {
@@ -245,6 +247,7 @@
         padding: 5px 14px;
         border-radius: 20px;
         margin-bottom: 14px;
+        width: fit-content;
     }
 
     .blog-card-body h3 {
@@ -252,6 +255,7 @@
         color: var(--header2);
         margin-bottom: 12px;
         line-height: 1.4;
+        min-height: 50px;
     }
 
     .blog-card-foot {
@@ -396,6 +400,12 @@
             flex-direction: column;
         }
     }
+
+    @media (max-width:400px) {
+          .cat-grid {
+            grid-template-columns: 1fr;
+        }
+    }
 </style>
 
 
@@ -477,9 +487,9 @@
         <div class="featured-content">
             <span class="blg-tag">Featured</span>
             <div class="featured-meta">
-                <span><span class="material-symbols-outlined">person</span>Arvind Menon</span>
-                <span><span class="material-symbols-outlined">calendar_month</span>Aug 02, 2026</span>
-                <span><span class="material-symbols-outlined">gavel</span>Corporate Law</span>
+                <span><span class="material-symbols-outlined">person</span> Menon</span>
+                <span><span class="material-symbols-outlined">calendar_month</span>May-26</span>
+                <span><span class="material-symbols-outlined">gavel</span>Law</span>
             </div>
             <h2>Understanding Contract Disputes: A Practical Guide for Businesses</h2>
             <p>Contract disagreements can disrupt operations and strain business relationships. Here's what every business owner should know before a disagreement turns into litigation.</p>

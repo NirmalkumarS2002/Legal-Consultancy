@@ -130,6 +130,9 @@
             border-radius: 10px;
             padding: 35px 28px;
             transition: .4s ease;
+
+            display: flex;
+            flex-direction: column;
         }
 
         .svc-card:hover {
@@ -156,6 +159,7 @@
             color: #666;
             line-height: 1.6;
             margin-bottom: 16px;
+            flex: 1;
         }
 
         .svc-card .read-more-link {
@@ -188,6 +192,10 @@
             align-items: center;
             max-width: 1400px;
             margin: 0 auto 80px auto;
+        }
+
+        .feature-row .hero-btn{
+            margin: 40px 0;
         }
 
         .feature-row:last-child {
@@ -416,8 +424,8 @@
             }
 
             .pricing-grid {
-                grid-template-columns: 1fr;
-                max-width: 450px;
+                grid-template-columns: 1fr 1fr;
+
             }
 
             .price-card.highlight {
@@ -437,6 +445,12 @@
             .svc-grid,
             .approach-grid {
                 grid-template-columns: 1fr;
+            }
+
+             .pricing-grid {
+                grid-template-columns: 1fr;
+                max-width: 450px;
+                gap: 40px;
             }
         }
     </style>
