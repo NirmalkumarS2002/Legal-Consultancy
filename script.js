@@ -50,3 +50,43 @@ const observer = new IntersectionObserver((entries) => {
 document.querySelectorAll(".reveal, .reveal-right, .reveal-left").forEach((el) => {
     observer.observe(el)
 })
+
+//footer js
+
+const footerMail = document.getElementById("footer-mail");
+const footerBtn = document.querySelector(".footer-btn");
+const ferror = document.querySelector(".ferror");
+
+footerBtn.addEventListener("click", (e) => {
+
+    e.preventDefault();
+
+    const email = footerMail.value.trim();
+
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    // Empty
+    if (email === "") {
+        ferror.textContent = "Please enter your email address";
+        ferror.style.color = "black";
+        return;
+    }
+
+    // Invalid email
+    if (!emailPattern.test(email)) {
+        ferror.textContent = "Please enter a valid email address";
+        ferror.style.color = "black";
+        return;
+    }
+
+    // Success
+    ferror.textContent = "Subscribed Successfully!";
+    ferror.style.color = "green";
+
+    footerMail.value = "";
+
+    // Hide after 3 seconds
+    setTimeout(() => {
+        ferror.textContent = "";
+    }, 3000);
+});

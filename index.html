@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-       <link rel="stylesheet"
+    <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0,-50..200" />
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
@@ -19,7 +20,6 @@
     <link rel="stylesheet" href="../css/style.css">
 
     <style>
-
         * {
             margin: 0;
             padding: 0;
@@ -35,6 +35,7 @@
 
         body {
             overflow-x: hidden;
+            scrollbar-width: none;
         }
 
         html {
@@ -42,36 +43,44 @@
             scroll-behavior: smooth;
         }
 
-     
+
+
+
         /* ===== SLIDER CONTAINER ===== */
- 
+
         .hero-sec-container {
             position: relative;
             min-height: 100vh;
-            overflow: hidden;
+            overflow-x: hidden;
         }
- 
+
+          .hero-sec-container::-webkit-scrollbar {
+    display: none;
+}
+
         .hero-section {
             min-height: 100vh;
- 
+            height: auto;
+
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
-            padding: 250px 50px 70px 50px;
+            padding: 200px 50px 70px 50px;
             gap: 40px;
- 
+
+
             position: absolute;
-            inset: 0;
+            top: 0;
+            left: 0;
+            right: 0;
             width: 100%;
             opacity: 0;
             visibility: hidden;
             z-index: 1;
             overflow: hidden;
             transition: opacity 1s ease;
-            
-
         }
- 
+
         .hero-section.active {
             opacity: 1;
             visibility: visible;
@@ -81,35 +90,36 @@
         .hero-section::before {
             content: "";
             position: absolute;
-            inset: -6%;         
+            inset: -6%;
+            /* extra bleed so the zoom never shows an edge */
             background-image: linear-gradient(125deg, rgba(0, 0, 0, 0.603), rgba(0, 0, 0, 0.473)), var(--bg-img);
             background-repeat: no-repeat;
-            background-size: cover;  
+            background-size: cover;
+            /* always cover, on every screen size */
             background-position: center center;
             z-index: -1;
             transform: scale(1);
         }
- 
+
         .hero-section.active::before {
             animation: bgZoom 8s ease-in-out infinite alternate;
         }
- 
-        .hero-sec1{
+
+        .hero-sec1 {
             --bg-img: url("./src/hero-bg2.webp");
         }
- 
-         .hero-sec2{
+
+        .hero-sec2 {
             --bg-img: url("./src/a2.webp");
         }
- 
-         .hero-sec3{
+
+        .hero-sec3 {
             --bg-img: url("./src/b6.webp");
         }
- 
- 
- 
-        /* ===== Entrance animations - only play while a slide is .active ===== */
- 
+
+
+
+
         .hero-section .hero-text .hero-title {
             font-size: clamp(13px, 1.3vw, 14px);
             background: rgba(255, 255, 255, 0.336);
@@ -118,28 +128,39 @@
             color: white;
             opacity: 0;
         }
- 
+
         .hero-section.active .hero-text .hero-title {
             animation: fadeInUp .8s ease forwards;
             animation-delay: .2s;
         }
- 
+
         .hero-section .hero-text h1 {
             font-size: clamp(30px, 6vw, 80px);
             color: white;
             margin-bottom: 10px;
             opacity: 0;
         }
- 
+
+
+        .hero-sec2 .hero-text h1 {
+            margin-block: 20px;
+        }
+
+        .hero-sec3 .hero-text h1 {
+            margin-block: 20px;
+        }
+
+
+
         .hero-section.active .hero-text h1 {
             animation: fadeInUp .8s ease forwards;
             animation-delay: .45s;
         }
- 
-         .hero-text h1 span{
+
+        .hero-text h1 span {
             color: var(--pcolor);
-         }
- 
+        }
+
         .hero-section .hero-text .hero-para {
             font-size: clamp(14px, 1.5vw, 16px);
             color: white;
@@ -148,14 +169,14 @@
             margin-bottom: 24px;
             opacity: 0;
         }
- 
+
         .hero-section.active .hero-text .hero-para {
             animation: fadeInUp .8s ease forwards;
             animation-delay: .7s;
         }
- 
-        
-              .hero-btn2 {
+
+
+        .hero-btn2 {
             padding: 17px 30px;
             font-size: 15px;
             border: none;
@@ -163,35 +184,35 @@
             background: var(--pcolor);
             font-weight: 600;
             border-radius: 7px;
- 
+
             display: flex;
             align-items: center;
             gap: 10px;
             transition: .5s ease;
             opacity: 0;
         }
- 
+
         .hero-section.active .hero-btn2 {
             animation: fadeInUp .8s ease forwards, pulseGlow 2.5s ease-in-out infinite;
             animation-delay: .95s, 3s;
         }
- 
-         .hero-btn2:hover span{
+
+        .hero-btn2:hover span {
             transform: translateX(5px);
-         }
- 
-           .hero-btn2:hover{
+        }
+
+        .hero-btn2:hover {
             box-shadow: 1px 1px 20px rgba(184, 135, 11, 0.61);
             background: #f8a322;
-           }
- 
-        
-        .hero-btn2 span{
+        }
+
+
+        .hero-btn2 span {
             font-size: 20px;
             transition: .5s ease;
         }
-        
- 
+
+
         .hero-bottom {
             display: flex;
             justify-content: space-between;
@@ -199,77 +220,93 @@
             gap: 30px;
             opacity: 0;
         }
- 
+
         .hero-section.active .hero-bottom {
             animation: fadeIn 1s ease forwards;
             animation-delay: 1.1s;
         }
- 
+
         .bottom-left {
             display: flex;
             gap: 35px;
         }
- 
- 
+
+
         .bottom-left div {
             display: flex;
             flex-direction: column;
             gap: 15px;
             opacity: 0;
         }
- 
-        .hero-section.active .bottom-left div:nth-child(1) { animation: fadeInUp .7s ease forwards; animation-delay: 1.25s; }
-        .hero-section.active .bottom-left div:nth-child(2) { animation: fadeInUp .7s ease forwards; animation-delay: 1.4s; }
-        .hero-section.active .bottom-left div:nth-child(3) { animation: fadeInUp .7s ease forwards; animation-delay: 1.55s; }
- 
+
+        .hero-section.active .bottom-left div:nth-child(1) {
+            animation: fadeInUp .7s ease forwards;
+            animation-delay: 1.25s;
+        }
+
+        .hero-section.active .bottom-left div:nth-child(2) {
+            animation: fadeInUp .7s ease forwards;
+            animation-delay: 1.4s;
+        }
+
+        .hero-section.active .bottom-left div:nth-child(3) {
+            animation: fadeInUp .7s ease forwards;
+            animation-delay: 1.55s;
+        }
+
         .bottom-left div span {
             font-size: clamp(30px, 4vw, 50px);
             color: var(--pcolor);
             display: inline-block;
         }
- 
+
         .hero-section.active .bottom-left div span {
             animation: iconFloat 3s ease-in-out infinite;
         }
- 
-        .hero-section.active .bottom-left div:nth-child(2) span { animation-delay: .3s; }
-        .hero-section.active .bottom-left div:nth-child(3) span { animation-delay: .6s; }
- 
+
+        .hero-section.active .bottom-left div:nth-child(2) span {
+            animation-delay: .3s;
+        }
+
+        .hero-section.active .bottom-left div:nth-child(3) span {
+            animation-delay: .6s;
+        }
+
         .bottom-left div h3 {
             font-size: clamp(16px, 1.8vw, 22px);
             color: white;
         }
- 
+
         .bottom-right {
             display: flex;
             justify-content: center;
             gap: 50px;
             opacity: 0;
         }
- 
+
         .hero-section.active .bottom-right {
             animation: fadeInUp .8s ease forwards;
             animation-delay: 1.7s;
         }
- 
+
         .bottom-right div h4 {
             color: white;
             margin-bottom: 5px;
             text-align: end;
             font-size: 16px;
         }
- 
+
         .bottom-right div p {
             color: white;
             font-size: 13px;
- 
+
         }
- 
+
         .hero-foot-images {
             display: flex;
- 
+
         }
- 
+
         .hero-foot-images img {
             height: 40px;
             width: 40px;
@@ -277,626 +314,688 @@
             margin-left: -7px;
             opacity: 0;
         }
- 
-        .hero-section.active .hero-foot-images img:nth-child(1) { animation: popIn .5s ease forwards; animation-delay: 1.85s; }
-        .hero-section.active .hero-foot-images img:nth-child(2) { animation: popIn .5s ease forwards; animation-delay: 1.95s; }
-        .hero-section.active .hero-foot-images img:nth-child(3) { animation: popIn .5s ease forwards; animation-delay: 2.05s; }
- 
+
+        .hero-section.active .hero-foot-images img:nth-child(1) {
+            animation: popIn .5s ease forwards;
+            animation-delay: 1.85s;
+        }
+
+        .hero-section.active .hero-foot-images img:nth-child(2) {
+            animation: popIn .5s ease forwards;
+            animation-delay: 1.95s;
+        }
+
+        .hero-section.active .hero-foot-images img:nth-child(3) {
+            animation: popIn .5s ease forwards;
+            animation-delay: 2.05s;
+        }
+
         /* ===== SLIDER DOTS ===== */
- 
+
         .slider-dots {
             position: absolute;
             bottom: 25px;
             left: 50%;
             transform: translateX(-50%);
-            display: flex;
+            display: none;
             gap: 10px;
             z-index: 5;
         }
- 
+
         .slider-dots span {
             height: 10px;
             width: 10px;
             border-radius: 50%;
-            background: rgba(255,255,255,0.4);
+            background: rgba(255, 255, 255, 0.4);
             cursor: pointer;
             transition: .4s ease;
         }
- 
+
         .slider-dots span.active {
             background: var(--pcolor);
             width: 28px;
             border-radius: 6px;
         }
- 
+
         /* ===== keyframes ===== */
- 
+
         @keyframes fadeInUp {
             from {
                 opacity: 0;
                 transform: translateY(25px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
- 
+
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
         }
- 
+
         @keyframes popIn {
             from {
                 opacity: 0;
                 transform: scale(.4);
             }
+
             to {
                 opacity: 1;
                 transform: scale(1);
             }
         }
- 
+
         @keyframes bgZoom {
-            from { transform: scale(1); }
-            to { transform: scale(1.12); }
+            from {
+                transform: scale(1);
+            }
+
+            to {
+                transform: scale(1.12);
+            }
         }
- 
+
         @keyframes iconFloat {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-6px); }
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-6px);
+            }
         }
- 
+
         @keyframes pulseGlow {
-            0%, 100% { box-shadow: 0 0 0 0 rgba(236, 164, 56, 0.5); }
-            50% { box-shadow: 0 0 0 10px rgba(236, 164, 56, 0); }
+
+            0%,
+            100% {
+                box-shadow: 0 0 0 0 rgba(236, 164, 56, 0.5);
+            }
+
+            50% {
+                box-shadow: 0 0 0 10px rgba(236, 164, 56, 0);
+            }
         }
- 
+
         @media (max-width:900px) {
             .hero-bottom {
                 flex-direction: column;
             }
- 
+
             .bottom-left div {
                 justify-content: center;
                 text-align: center;
             }
- 
+
             .hero-text {
                 text-align: center;
             }
- 
+
             .hero-text .hero-title {
                 margin: 0 auto;
             }
- 
+
             .hero-text .hero-para {
                 margin: 20px auto;
             }
- 
-            .hero-btn2{
+
+            .hero-btn2 {
                 margin: 20px auto;
             }
- 
- 
- 
+
+
+
             .bottom-right div {
                 text-align: center;
             }
- 
+
             .bottom-right div h4 {
                 text-align: center;
             }
         }
- 
+
+        @media (max-height: 700px) {
+            .hero-section {
+                padding-top: 140px;
+            }
+        }
+
         @media (max-width:600px) {
             .hero-section {
                 padding: 200px 10px 70px 10px;
             }
- 
+
             .bottom-left {
                 gap: 15px;
             }
         }
- 
+
+
         /*added sections*/
- .sec {
-        padding: 90px 50px;
-        background: #ffffff;
-    }
-
-    .sec-dark {
-        background: var(--header2);
-    }
-
-    .sec-tag {
-        font-size: 14px;
-        letter-spacing: 2px;
-        text-transform: uppercase;
-        color: var(--pcolor);
-        font-weight: 600;
-        margin-bottom: 12px;
-        display: block;
-    }
-
-    .sec-title {
-        font-size: clamp(28px, 4vw, 44px);
-        color: var(--header2);
-        margin-bottom: 18px;
-        font-weight: 700;
-        line-height: 1.2;
-    }
-
-    .sec-dark .sec-title {
-        color: white;
-    }
-
-    .sec-desc {
-        font-size: 16px;
-        line-height: 1.7;
-        color: #555;
-        max-width: 600px;
-    }
-
-    .sec-dark .sec-desc {
-        color: #cfcfcf;
-    }
-
-    .sec-header-center {
-        text-align: center;
-        max-width: 700px;
-        margin: 0 auto 55px auto;
-    }
-
-    .sec-header-center .sec-desc {
-        margin: 0 auto;
-    }
-
-    /* ===== 1. WHO WE ARE ===== */
-
-    .about-wrap {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 60px;
-        align-items: center;
-        max-width: 1400px;
-        margin: 0 auto;
-    }
-
-    .about-wrap .hero-btn{
-        margin: 40px 0;
-    }
-
-    .about-img-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 20px;
-    }
-
-    .about-img-grid img:first-child {
-        margin-top: 40px;
-           object-position: center;
-    }
-
-    .about-img-grid img {
-        width: 100%;
-        height: 260px;
-        object-fit: cover;
-        border-radius: 8px;
-        object-position: top;
-    }
-
-    .about-points {
-        display: flex;
-        flex-direction: column;
-        gap: 14px;
-        margin: 25px 0;
-    }
-
-    .about-points div {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        color: var(--header2);
-        font-size: 16px;
-        font-weight: 500;
-    }
-
-    .about-points div span {
-        color: var(--pcolor);
-        font-size: 22px;
-    }
-
-    /* ===== 2. PRACTICE AREAS ===== */
-
-    .services-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 25px;
-        max-width: 1400px;
-        margin: 0 auto;
-    }
-
-    .service-card {
-        background: white;
-        border: var(--border);
-        border-radius: 10px;
-        padding: 35px 28px;
-        transition: .4s ease;
-    }
-
-    .service-card:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
-        border-color: var(--pcolor);
-    }
-
-    .service-card span.material-symbols-outlined {
-        font-size: 40px;
-        color: var(--pcolor);
-        margin-bottom: 18px;
-        display: block;
-    }
-
-    .service-card h3 {
-        font-size: 20px;
-        color: var(--header2);
-        margin-bottom: 10px;
-    }
-
-    .service-card p {
-        font-size: 15px;
-        color: #666;
-        line-height: 1.6;
-    }
-
-    /* ===== 3. WHY CHOOSE US ===== */
-
-    .why-wrap {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 60px;
-        align-items: center;
-        max-width: 1400px;
-        margin: 0 auto;
-    }
-
-    .why-wrap .sec-title{
-        color: white;
-    }
-
-      .why-wrap  .sec-desc {
-        color: #cfcfcf;
-    }
-
-    .why-img {
-        width: 100%;
-        height: 480px;
-        object-fit: cover;
-        border-radius: 10px;
-    }
-
-    .stats-row {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 25px;
-        margin-top: 30px;
-    }
-
-    .stat-box {
-        border-left: 3px solid var(--pcolor);
-        padding-left: 15px;
-    }
-
-    .stat-box h2 {
-        font-size: 40px;
-        color: var(--pcolor);
-    }
-
-    .stat-box p {
-        color: #cfcfcf;
-        font-size: 15px;
-    }
-
-    /* ===== 4. HOW WE WORK ===== */
-
-    .process-grid {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 25px;
-        max-width: 1400px;
-        margin: 0 auto;
-    }
-
-    .process-card {
-        text-align: center;
-        padding: 30px 20px;
-        position: relative;
-    }
-
-    .process-num {
-        font-size: 50px;
-        font-weight: 700;
-        color: rgba(0, 0, 0, 0.06);
-        display: block;
-        margin-bottom: -10px;
-    }
-
-    .process-card span.material-symbols-outlined {
-        font-size: 34px;
-        color: var(--pcolor);
-        background: #fff6e8;
-        height: 70px;
-        width: 70px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 50%;
-        margin: 0 auto 18px auto;
-    }
-
-    .process-card h3 {
-        font-size: 18px;
-        color: var(--header2);
-        margin-bottom: 8px;
-    }
-
-    .process-card p {
-        font-size: 14px;
-        color: #666;
-        line-height: 1.6;
-    }
-
-    /* ===== 5. ATTORNEYS ===== */
-
-    .team-grid {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 25px;
-        max-width: 1400px;
-        margin: 0 auto;
-    }
-
-    .team-card {
-        background: #1e1e1e;
-        border-radius: 10px;
-        overflow: hidden;
-        text-align: center;
-        transition: .4s ease;
-    }
-
-    .team-card:hover {
-        transform: translateY(-8px);
-    }
-
-    .team-card img {
-        width: 100%;
-        height: 300px;
-        object-fit: cover;
-        object-position: top;
-    }
-
-    .team-info {
-        padding: 20px;
-    }
-
-    .team-info h3 {
-        color: white;
-        font-size: 18px;
-        margin-bottom: 5px;
-    }
-
-    .team-info p {
-        color: var(--pcolor);
-        font-size: 14px;
-        margin-bottom: 14px;
-    }
-
-    .team-icons {
-        display: flex;
-        justify-content: center;
-        gap: 10px;
-    }
-
-    .team-icons a {
-        color: white;
-        border: var(--border);
-        height: 35px;
-        width: 35px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 6px;
-        text-decoration: none;
-        transition: .4s ease;
-    }
-
-    .team-icons a:hover {
-        background: var(--pcolor);
-        color: black;
-    }
-
-    /* ===== 6. TESTIMONIALS ===== */
-
-    .testi-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 25px;
-        max-width: 1400px;
-        margin: 0 auto;
-    }
-
-    .testi-card {
-        background: white;
-        border-radius: 10px;
-        padding: 35px 28px;
-        border: var(--border);
-
-        display: flex;
-        flex-direction: column;
-    }
-
-    .testi-quote {
-        font-size: 15px;
-        line-height: 1.7;
-        color: #555;
-        margin-bottom: 25px;
-        flex: 1;
-    }
-
-    .testi-person {
-        display: flex;
-        align-items: center;
-        gap: 15px;
-    }
-
-    .testi-person img {
-        width: 55px;
-        height: 55px;
-        border-radius: 50%;
-        object-fit: cover;
-    }
-
-    .testi-person h4 {
-        font-size: 16px;
-        color: var(--header2);
-    }
-
-    .testi-person span {
-        font-size: 13px;
-        color: var(--pcolor);
-    }
-
-    /* ===== 7. CASE RESULTS ===== */
-
-    .results-wrap {
-        display: grid;
-        grid-template-columns: 1fr 1.1fr;
-        gap: 60px;
-        align-items: center;
-        max-width: 1400px;
-        margin: 0 auto;
-    }
-
-    .results-list {
-        display: flex;
-        flex-direction: column;
-        gap: 22px;
-        margin-top: 20px;
-    }
-
-    .result-item {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        border-bottom: 1px solid #eee;
-        padding-bottom: 18px;
-    }
-
-    .result-item h4 {
-        font-size: 17px;
-        color: white;
-        margin-bottom: 4px;
-    }
-
-    .result-item p {
-        font-size: 14px;
-        color: #777;
-    }
-
-    .result-item .result-tag {
-        background: #fff6e8;
-        color: var(--pcolor);
-        font-weight: 600;
-        font-size: 14px;
-        padding: 6px 16px;
-        border-radius: 20px;
-        white-space: nowrap;
-    }
-
-    .results-img {
-        width: 100%;
-        height: 520px;
-        object-fit: cover;
-        border-radius: 10px;
-    }
-
-    /* ===== 8. CTA / BOOK CONSULTATION ===== */
-
-    .cta-section {
-        background: linear-gradient(120deg, rgba(0,0,0,0.75), rgba(0,0,0,0.55)), url("./src/h6.webp") center/cover no-repeat;
-        padding: 100px 20px;
-        text-align: center;
-    }
-
-   
-
-    .cta-section>span.material-symbols-outlined {
-        font-size: 45px;
-        color: var(--pcolor);
-        margin-bottom: 15px;
-        display: block;
-    }
-
-    .cta-section h1 {
-        color: white;
-        font-size: clamp(28px, 4vw, 48px);
-        max-width: 750px;
-        margin: 0 auto 18px auto;
-        line-height: 1.3;
-    }
-
-    .cta-section p {
-        color: #d9d9d9;
-        max-width: 550px;
-        margin: 0 auto 30px auto;
-        font-size: 16px;
-        line-height: 1.6;
-    }
-
-    /* ===== Responsive ===== */
-
-    @media (max-width:1100px) {
-        .about-wrap, .why-wrap, .results-wrap {
-            grid-template-columns: 1fr;
-        }
-        .services-grid, .team-grid, .testi-grid {
-            grid-template-columns: repeat(2, 1fr);
-        }
-        .process-grid {
-            grid-template-columns: repeat(2, 1fr);
-        }
-        .stats-row {
-            grid-template-columns: 1fr 1fr;
-        }
-    }
-
-    @media (max-width:650px) {
         .sec {
-            padding: 60px 20px;
+            padding: 90px 50px;
+            background: #ffffff;
         }
-        .services-grid, .team-grid, .testi-grid, .process-grid {
-            grid-template-columns: 1fr;
-        }
-        .about-img-grid {
-            grid-template-columns: 1fr;
-        }
-        .about-img-grid img:first-child {
-            margin-top: 0;
-        }
-    }
 
-    
-</style>
+        .sec-dark {
+            background: var(--header2);
+        }
+
+        .sec-tag {
+            font-size: 14px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--pcolor);
+            font-weight: 600;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .sec-title {
+            font-size: clamp(28px, 4vw, 44px);
+            color: var(--header2);
+            margin-bottom: 18px;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .sec-dark .sec-title {
+            color: white;
+        }
+
+        .sec-desc {
+            font-size: 16px;
+            line-height: 1.7;
+            color: #555;
+            max-width: 600px;
+        }
+
+        .sec-dark .sec-desc {
+            color: #cfcfcf;
+        }
+
+        .sec-header-center {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 55px auto;
+        }
+
+        .sec-header-center .sec-desc {
+            margin: 0 auto;
+        }
+
+        /* ===== 1. WHO WE ARE ===== */
+
+        .about-wrap {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .about-wrap .hero-btn {
+            margin: 40px 0;
+        }
+
+        .about-img-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .about-img-grid img:first-child {
+            margin-top: 40px;
+            object-position: center;
+        }
+
+        .about-img-grid img {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+            border-radius: 8px;
+            object-position: top;
+        }
+
+        .about-points {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            margin: 25px 0;
+        }
+
+        .about-points div {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--header2);
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .about-points div span {
+            color: var(--pcolor);
+            font-size: 22px;
+        }
+
+        /* ===== 2. PRACTICE AREAS ===== */
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: white;
+            border: var(--border);
+            border-radius: 10px;
+            padding: 35px 28px;
+            transition: .4s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+            border-color: var(--pcolor);
+        }
+
+        .service-card span.material-symbols-outlined {
+            font-size: 40px;
+            color: var(--pcolor);
+            margin-bottom: 18px;
+            display: block;
+        }
+
+        .service-card h3 {
+            font-size: 20px;
+            color: var(--header2);
+            margin-bottom: 10px;
+        }
+
+        .service-card p {
+            font-size: 15px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* ===== 3. WHY CHOOSE US ===== */
+
+        .why-wrap {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .why-wrap .sec-title {
+            color: white;
+        }
+
+        .why-wrap .sec-desc {
+            color: #cfcfcf;
+        }
+
+        .why-img {
+            width: 100%;
+            height: 480px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .stats-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .stat-box {
+            border-left: 3px solid var(--pcolor);
+            padding-left: 15px;
+        }
+
+        .stat-box h2 {
+            font-size: 40px;
+            color: var(--pcolor);
+        }
+
+        .stat-box p {
+            color: #cfcfcf;
+            font-size: 15px;
+        }
+
+        /* ===== 4. HOW WE WORK ===== */
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .process-card {
+            text-align: center;
+            padding: 30px 20px;
+            position: relative;
+        }
+
+        .process-num {
+            font-size: 50px;
+            font-weight: 700;
+            color: rgba(0, 0, 0, 0.06);
+            display: block;
+            margin-bottom: -10px;
+        }
+
+        .process-card span.material-symbols-outlined {
+            font-size: 34px;
+            color: var(--pcolor);
+            background: #fff6e8;
+            height: 70px;
+            width: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin: 0 auto 18px auto;
+        }
+
+        .process-card h3 {
+            font-size: 18px;
+            color: var(--header2);
+            margin-bottom: 8px;
+        }
+
+        .process-card p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* ===== 5. ATTORNEYS ===== */
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .team-card {
+            background: #1e1e1e;
+            border-radius: 10px;
+            overflow: hidden;
+            text-align: center;
+            transition: .4s ease;
+        }
+
+        .team-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .team-card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            object-position: top;
+        }
+
+        .team-info {
+            padding: 20px;
+        }
+
+        .team-info h3 {
+            color: white;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .team-info p {
+            color: var(--pcolor);
+            font-size: 14px;
+            margin-bottom: 14px;
+        }
+
+        .team-icons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .team-icons a {
+            color: white;
+            border: var(--border);
+            height: 35px;
+            width: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: .4s ease;
+        }
+
+        .team-icons a:hover {
+            background: var(--pcolor);
+            color: black;
+        }
+
+        /* ===== 6. TESTIMONIALS ===== */
+
+        .testi-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .testi-card {
+            background: white;
+            border-radius: 10px;
+            padding: 35px 28px;
+            border: var(--border);
+
+            display: flex;
+            flex-direction: column;
+        }
+        
+          .testi-card:hover{
+            box-shadow: 1px 1px 20px #eca43875;
+            transform: scale(0.9);
+          }
+        .testi-quote {
+            font-size: 15px;
+            line-height: 1.7;
+            color: #555;
+            margin-bottom: 25px;
+            flex: 1;
+        }
+
+        .testi-person {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .testi-person img {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .testi-person h4 {
+            font-size: 16px;
+            color: var(--header2);
+        }
+
+        .testi-person span {
+            font-size: 13px;
+            color: var(--pcolor);
+        }
+
+        /* ===== 7. CASE RESULTS ===== */
+
+        .results-wrap {
+            display: grid;
+            grid-template-columns: 1fr 1.1fr;
+            gap: 60px;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .results-list {
+            display: flex;
+            flex-direction: column;
+            gap: 22px;
+            margin-top: 20px;
+        }
+
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 18px;
+        }
+
+        .result-item h4 {
+            font-size: 17px;
+            color: white;
+            margin-bottom: 4px;
+        }
+
+        .result-item p {
+            font-size: 14px;
+            color: #777;
+        }
+
+        .result-item .result-tag {
+            background: #fff6e8;
+            color: var(--pcolor);
+            font-weight: 600;
+            font-size: 14px;
+            padding: 6px 16px;
+            border-radius: 20px;
+            white-space: nowrap;
+        }
+
+        .results-img {
+            width: 100%;
+            height: 520px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        /* ===== 8. CTA / BOOK CONSULTATION ===== */
+
+        .cta-section {
+            background: linear-gradient(120deg, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.55)), url("./src/h6.webp") center/cover no-repeat;
+            padding: 100px 20px;
+            text-align: center;
+        }
+
+
+
+        .cta-section>span.material-symbols-outlined {
+            font-size: 45px;
+            color: var(--pcolor);
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .cta-section h1 {
+            color: white;
+            font-size: clamp(28px, 4vw, 48px);
+            max-width: 750px;
+            margin: 0 auto 18px auto;
+            line-height: 1.3;
+        }
+
+        .cta-section p {
+            color: #d9d9d9;
+            max-width: 550px;
+            margin: 0 auto 30px auto;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        /* ===== Responsive ===== */
+
+        @media (max-width:1100px) {
+
+            .about-wrap,
+            .why-wrap,
+            .results-wrap {
+                grid-template-columns: 1fr;
+            }
+
+            .services-grid,
+            .team-grid,
+            .testi-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .process-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .stats-row {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width:650px) {
+            .sec {
+                padding: 60px 20px;
+            }
+
+            .services-grid,
+            .team-grid,
+            .testi-grid,
+            .process-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-img-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-img-grid img:first-child {
+                margin-top: 0;
+            }
+        }
+    </style>
 
 </head>
+
 <body>
-  <header class="header">
+    <header class="header">
 
         <div class="header1">
             <div class="nav-time">
-                <a href="404.html"><span class="material-symbols-outlined">location_on</span>Office Hours | Mon - Fri | 9:00 -
+                <a href="404.html"><span class="material-symbols-outlined">location_on</span>Office Hours | Mon - Fri |
+                    9:00 -
                     6:00 </a>
             </div>
 
@@ -915,7 +1014,8 @@
         </div>
 
         <div class="header2">
-            <a href="index.html" class="company-logo"><img src="./src/logo.webp" alt="Company Logo" class="logo-img"></a>
+            <a href="index.html" class="company-logo"><img src="./src/logo.webp" alt="Company Logo"
+                    class="logo-img"></a>
 
             <div class="nav-container">
 
@@ -951,480 +1051,495 @@
     </header>
 
     <div class="hero-sec-container">
-           <section class="hero-section hero-sec1">
+        <section class="hero-section hero-sec1">
 
-        <div class="hero-text">
-            <p class="hero-title">Welcome to Regails</p>'
-           <h1 class="herosec-title">Expert <span>Legal Advice</span> <br> Trusted Solutions.</h1>
-            <p class="hero-para">We provide trusted legal representation with a strategic approach, delivering clear
-                guidance, strong
-                advocacy, and reliable solutions for individuals and businesses seeking justice, protection, and
-                long-term
-                legal confidence</p>
-            <button class="hero-btn2 errorpage">Book a Appointment <span class="material-symbols-outlined">arrow_forward</span></button>
-        </div>
-
-
-        <div class="hero-bottom">
+            <div class="hero-text">
+                <p class="hero-title">Welcome to Regails</p>'
+                <h1 class="herosec-title">Expert <span>Legal Advice</span> <br> Trusted Solutions.</h1>
+                <p class="hero-para">
+                    Trusted legal guidance backed by experience and expertise.
+                    Clear solutions for individuals and businesses.
+                </p>
+                <button class="hero-btn2 errorpage">Book a Appointment <span
+                        class="material-symbols-outlined">arrow_forward</span></button>
+            </div>
 
 
-            <div class="bottom-left">
-                <div>
-                    <span class="material-symbols-outlined">gavel</span>
-                    <h3>Corporate Law</h3>
+            <div class="hero-bottom">
+
+
+                <div class="bottom-left">
+                    <div>
+                        <span class="material-symbols-outlined">gavel</span>
+                        <h3>Corporate Law</h3>
+                    </div>
+
+                    <div>
+                        <span class="material-symbols-outlined">balance</span>
+                        <h3>Employment Law</h3>
+                    </div>
+
+                    <div>
+                        <span class="material-symbols-outlined">home</span>
+                        <h3>Real Estate Law</h3>
+                    </div>
                 </div>
 
-                <div>
-                    <span class="material-symbols-outlined">balance</span>
-                    <h3>Employment Law</h3>
-                </div>
+                <div class="bottom-right">
 
-                <div>
-                    <span class="material-symbols-outlined">home</span>
-                    <h3>Real Estate Law</h3>
+
+                    <div>
+                        <h4>2200+</h4>
+                        <p>Satisfied Clients</p>
+                    </div>
+                    <div class="hero-foot-images">
+                        <img src="./src/team1-1.webp" alt="">
+                        <img src="./src/team1-2.webp" alt="">
+                        <img src="./src/team1-3.webp" alt="">
+                    </div>
+
                 </div>
             </div>
 
-            <div class="bottom-right">
+        </section>
+
+        <section class="hero-section hero-sec2">
 
 
-                <div>
-                    <h4>2200+</h4>
-                    <p>Satisfied Clients</p>
-                </div>
-                <div class="hero-foot-images">
-                    <img src="./src/team1-1.webp" alt="">
-                    <img src="./src/team1-2.webp" alt="">
-                    <img src="./src/team1-3.webp" alt="">
-                </div>
+            <div class="hero-text">
+
+                <p class="hero-title">Your Trusted Legal Partner</p>
+
+                <h1 class="herosec-title">
+                    Protecting Your <span>Rights</span> <br>
+                    Guiding Your Future.
+                </h1>
+
+                <p class="hero-para">
+                    Get reliable legal guidance with strategic solutions tailored to your needs.
+                    We help individuals and businesses navigate legal matters with confidence.
+                </p>
+
+                <button class="hero-btn2 errorpage">
+                    Schedule a Consultation
+                    <span class="material-symbols-outlined">arrow_forward</span>
+                </button>
 
             </div>
+
+
+
+
+            <div class="hero-bottom">
+
+
+                <div class="bottom-left">
+                    <div>
+                        <span class="material-symbols-outlined">gavel</span>
+                        <h3>Corporate Law</h3>
+                    </div>
+
+                    <div>
+                        <span class="material-symbols-outlined">balance</span>
+                        <h3>Employment Law</h3>
+                    </div>
+
+                    <div>
+                        <span class="material-symbols-outlined">home</span>
+                        <h3>Real Estate Law</h3>
+                    </div>
+                </div>
+
+                <div class="bottom-right">
+
+
+                    <div>
+                        <h4>2200+</h4>
+                        <p>Satisfied Clients</p>
+                    </div>
+                    <div class="hero-foot-images">
+                        <img src="./src/team1-1.webp" alt="">
+                        <img src="./src/team1-2.webp" alt="">
+                        <img src="./src/team1-3.webp" alt="">
+                    </div>
+
+                </div>
+            </div>
+
+        </section>
+
+        <section class="hero-section hero-sec3">
+
+
+            <div class="hero-text">
+
+                <p class="hero-title">Experienced Legal Counsel</p>
+
+                <h1 class="herosec-title">
+                    Strong <span>Clear Action.</span> <br>
+                    Better Legal Outcomes.
+                </h1>
+
+                <p class="hero-para">
+                    We provide practical legal solutions with expertise and careful analysis.
+                    Dedicated representation to help you move forward with confidence.
+                </p>
+
+                <button class="hero-btn2 errorpage">
+                    Talk to Our Legal Team
+                    <span class="material-symbols-outlined">arrow_forward</span>
+                </button>
+
+            </div>
+
+
+
+
+            <div class="hero-bottom">
+
+
+                <div class="bottom-left">
+                    <div>
+                        <span class="material-symbols-outlined">gavel</span>
+                        <h3>Corporate Law</h3>
+                    </div>
+
+                    <div>
+                        <span class="material-symbols-outlined">balance</span>
+                        <h3>Employment Law</h3>
+                    </div>
+
+                    <div>
+                        <span class="material-symbols-outlined">home</span>
+                        <h3>Real Estate Law</h3>
+                    </div>
+                </div>
+
+                <div class="bottom-right">
+
+
+                    <div>
+                        <h4>2200+</h4>
+                        <p>Satisfied Clients</p>
+                    </div>
+                    <div class="hero-foot-images">
+                        <img src="./src/team1-1.webp" alt="">
+                        <img src="./src/team1-2.webp" alt="">
+                        <img src="./src/team1-3.webp" alt="">
+                    </div>
+
+                </div>
+            </div>
+
+        </section>
+
+        <div class="slider-dots">
+            <span class="active" data-index="0"></span>
+            <span data-index="1"></span>
+            <span data-index="2"></span>
         </div>
 
+    </div>
+
+
+    <!-- 1. WHO WE ARE -->
+    <section class="sec reveal">
+        <div class="about-wrap">
+            <div class="about-img-grid">
+                <img src="./src/h1.webp" alt="Lawyer discussing case" class="reveal-left-2">
+                <img src="./src/h3.webp" alt="Law books in office" class="reveal-left delay-1">
+            </div>
+            <div class="reveal-right">
+                <span class="sec-tag reveal-right delay-1">Who We Are</span>
+                <h2 class="sec-title reveal-right delay-2">Two Decades of Trusted Legal Practice</h2>
+                <p class="sec-desc reveal-right delay-3">Regails brings together experienced advocates and consultants
+                    who work closely with every client, offering honest guidance and dependable representation across
+                    corporate, employment, and civil matters.</p>
+                <div class="about-points">
+                    <div class="reveal-right delay-1"><span
+                            class="material-symbols-outlined">check_circle</span>Licensed and experienced attorneys
+                    </div>
+                    <div class="reveal-right delay-2"><span
+                            class="material-symbols-outlined">check_circle</span>Transparent fees, no hidden charges
+                    </div>
+                    <div class="reveal-right delay-3"><span
+                            class="material-symbols-outlined">check_circle</span>Personalised strategy for every case
+                    </div>
+                </div>
+                <button class="hero-btn errorpage reveal-right delay-4" style="color:black;">Know More About Us <span
+                        class="material-symbols-outlined">arrow_forward</span></button>
+            </div>
+        </div>
     </section>
 
-                <section class="hero-section hero-sec2">
 
-
-<div class="hero-text">
-
-    <p class="hero-title">Your Trusted Legal Partner</p>
-
-    <h1 class="herosec-title">
-        Protecting Your <span>Rights</span> <br>
-        Guiding Your Future.
-    </h1>
-
-    <p class="hero-para">
-        Get reliable legal guidance backed by experience, strategic thinking,
-        and a commitment to your best interests. We help individuals and
-        businesses navigate complex legal matters with clarity and confidence.
-    </p>
-
-    <button class="hero-btn2 errorpage">
-        Schedule a Consultation
-        <span class="material-symbols-outlined">arrow_forward</span>
-    </button>
-
-</div>
-
-
-
-
-        <div class="hero-bottom">
-
-
-            <div class="bottom-left">
-                <div>
-                    <span class="material-symbols-outlined">gavel</span>
-                    <h3>Corporate Law</h3>
-                </div>
-
-                <div>
-                    <span class="material-symbols-outlined">balance</span>
-                    <h3>Employment Law</h3>
-                </div>
-
-                <div>
-                    <span class="material-symbols-outlined">home</span>
-                    <h3>Real Estate Law</h3>
-                </div>
+    <!-- 2. PRACTICE AREAS -->
+    <section class="sec sec-dark reveal">
+        <div class="sec-header-center">
+            <span class="sec-tag">What We Do</span>
+            <h2 class="sec-title">Our Practice Areas</h2>
+            <p class="sec-desc">Comprehensive legal support built around your specific situation, delivered by
+                specialists in each field of law.</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card reveal delay-1">
+                <span class="material-symbols-outlined">gavel</span>
+                <h3>Corporate Law</h3>
+                <p>Structuring, compliance, and contracts for businesses of every size.</p>
             </div>
-
-            <div class="bottom-right">
-
-
-                <div>
-                    <h4>2200+</h4>
-                    <p>Satisfied Clients</p>
-                </div>
-                <div class="hero-foot-images">
-                    <img src="./src/team1-1.webp" alt="">
-                    <img src="./src/team1-2.webp" alt="">
-                    <img src="./src/team1-3.webp" alt="">
-                </div>
-
+            <div class="service-card reveal delay-2">
+                <span class="material-symbols-outlined">balance</span>
+                <h3>Employment Law</h3>
+                <p>Protecting employer and employee rights through fair, clear guidance.</p>
+            </div>
+            <div class="service-card reveal delay-3">
+                <span class="material-symbols-outlined">home</span>
+                <h3>Real Estate Law</h3>
+                <p>Property transactions, title verification, and dispute resolution.</p>
+            </div>
+            <div class="service-card reveal delay-1">
+                <span class="material-symbols-outlined">family_restroom</span>
+                <h3>Family Law</h3>
+                <p>Sensitive, confidential support for family and marital matters.</p>
+            </div>
+            <div class="service-card reveal delay-2">
+                <span class="material-symbols-outlined">description</span>
+                <h3>Contract Law</h3>
+                <p>Drafting and reviewing agreements that protect your interests.</p>
+            </div>
+            <div class="service-card reveal delay-3">
+                <span class="material-symbols-outlined">shield</span>
+                <h3>Litigation Support</h3>
+                <p>Strong courtroom advocacy backed by thorough case preparation.</p>
             </div>
         </div>
-
     </section>
 
-                <section class="hero-section hero-sec3">
 
-
-<div class="hero-text">
-
-    <p class="hero-title">Experienced Legal Counsel</p>
-
-    <h1 class="herosec-title">
-        Strong  <span>Clear Action.</span> <br>
-        Better Legal Outcomes.
-    </h1>
-
-    <p class="hero-para">
-        We deliver practical legal solutions tailored to your needs,
-        combining professional expertise, careful analysis, and dedicated
-        representation to help you move forward with confidence.
-    </p>
-
-    <button class="hero-btn2 errorpage">
-        Talk to Our Legal Team
-        <span class="material-symbols-outlined">arrow_forward</span>
-    </button>
-
-</div>
-
-
-
-
-        <div class="hero-bottom">
-
-
-            <div class="bottom-left">
-                <div>
-                    <span class="material-symbols-outlined">gavel</span>
-                    <h3>Corporate Law</h3>
+    <!-- 3. WHY CHOOSE US -->
+    <section class="sec reveal" style="background: var(--header1);">
+        <div class="why-wrap">
+            <img class="why-img reveal-left" src="./src/h4.webp" alt="Legal team meeting">
+            <div class="reveal-right">
+                <span class="sec-tag reveal-right delay-1">Why Choose Regails</span>
+                <h2 class="sec-title reveal-right delay-2">Committed To Protecting What Matters To You</h2>
+                <p class="sec-desc reveal-right delay-3">We combine deep legal knowledge with a client-first approach,
+                    keeping you informed at every stage of your case.</p>
+                <div class="stats-row">
+                    <div class="stat-box reveal-right delay-1">
+                        <h2>2K+</h2>
+                        <p>Satisfied Clients</p>
+                    </div>
+                    <div class="stat-box reveal-right delay-2">
+                        <h2>18+</h2>
+                        <p>Years of Experience</p>
+                    </div>
+                    <div class="stat-box reveal-right delay-3">
+                        <h2>95%</h2>
+                        <p>Case Success Rate</p>
+                    </div>
+                    <div class="stat-box reveal-right delay-4">
+                        <h2>30+</h2>
+                        <p>Expert Attorneys</p>
+                    </div>
                 </div>
-
-                <div>
-                    <span class="material-symbols-outlined">balance</span>
-                    <h3>Employment Law</h3>
-                </div>
-
-                <div>
-                    <span class="material-symbols-outlined">home</span>
-                    <h3>Real Estate Law</h3>
-                </div>
-            </div>
-
-            <div class="bottom-right">
-
-
-                <div>
-                    <h4>2200+</h4>
-                    <p>Satisfied Clients</p>
-                </div>
-                <div class="hero-foot-images">
-                    <img src="./src/team1-1.webp" alt="">
-                    <img src="./src/team1-2.webp" alt="">
-                    <img src="./src/team1-3.webp" alt="">
-                </div>
-
             </div>
         </div>
-
     </section>
 
-    <div class="slider-dots">
-        <span class="active" data-index="0"></span>
-        <span data-index="1"></span>
-        <span data-index="2"></span>
-    </div>
 
-    </div>
-
-    
-<!-- 1. WHO WE ARE -->
-<section class="sec reveal">
-    <div class="about-wrap">
-        <div class="about-img-grid">
-            <img src="./src/h1.webp" alt="Lawyer discussing case" class="reveal-left-2">
-            <img src="./src/h3.webp" alt="Law books in office" class="reveal-left delay-1">
+    <!-- 4. HOW WE WORK -->
+    <section class="sec reveal">
+        <div class="sec-header-center">
+            <span class="sec-tag">Our Process</span>
+            <h2 class="sec-title">How We Work With You</h2>
+            <p class="sec-desc">A clear, structured process so you always know what happens next with your case.</p>
         </div>
-        <div class="reveal-right">
-            <span class="sec-tag reveal-right delay-1">Who We Are</span>
-            <h2 class="sec-title reveal-right delay-2">Two Decades of Trusted Legal Practice</h2>
-            <p class="sec-desc reveal-right delay-3">Regails brings together experienced advocates and consultants who work closely with every client, offering honest guidance and dependable representation across corporate, employment, and civil matters.</p>
-            <div class="about-points">
-                <div class="reveal-right delay-1"><span class="material-symbols-outlined">check_circle</span>Licensed and experienced attorneys</div>
-                <div class="reveal-right delay-2"><span class="material-symbols-outlined">check_circle</span>Transparent fees, no hidden charges</div>
-                <div class="reveal-right delay-3"><span class="material-symbols-outlined">check_circle</span>Personalised strategy for every case</div>
+        <div class="process-grid">
+            <div class="process-card reveal delay-1">
+                <span class="process-num">01</span>
+                <span class="material-symbols-outlined">calendar_month</span>
+                <h3>Book Consultation</h3>
+                <p>Schedule a meeting to discuss your legal situation.</p>
             </div>
-            <button class="hero-btn errorpage reveal-right delay-4" style="color:black;">Know More About Us <span class="material-symbols-outlined">arrow_forward</span></button>
+            <div class="process-card reveal delay-2">
+                <span class="process-num">02</span>
+                <span class="material-symbols-outlined">fact_check</span>
+                <h3>Case Review</h3>
+                <p>We evaluate the facts and outline your options.</p>
+            </div>
+            <div class="process-card reveal delay-3">
+                <span class="process-num">03</span>
+                <span class="material-symbols-outlined">strategy</span>
+                <h3>Build Strategy</h3>
+                <p>A tailored legal strategy designed around your goals.</p>
+            </div>
+            <div class="process-card reveal delay-4">
+                <span class="process-num">04</span>
+                <span class="material-symbols-outlined">verified</span>
+                <h3>Resolve Case</h3>
+                <p>We represent and guide you through to resolution.</p>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
 
-<!-- 2. PRACTICE AREAS -->
-<section class="sec sec-dark reveal">
-    <div class="sec-header-center">
-        <span class="sec-tag">What We Do</span>
-        <h2 class="sec-title">Our Practice Areas</h2>
-        <p class="sec-desc">Comprehensive legal support built around your specific situation, delivered by specialists in each field of law.</p>
-    </div>
-    <div class="services-grid">
-        <div class="service-card reveal delay-1">
-            <span class="material-symbols-outlined">gavel</span>
-            <h3>Corporate Law</h3>
-            <p>Structuring, compliance, and contracts for businesses of every size.</p>
+    <!-- 5. ATTORNEYS -->
+    <section class="sec sec-dark reveal">
+        <div class="sec-header-center">
+            <span class="sec-tag">Our Team</span>
+            <h2 class="sec-title">Meet Our Attorneys</h2>
+            <p class="sec-desc">Experienced professionals dedicated to achieving the best outcome for your case.</p>
         </div>
-        <div class="service-card reveal delay-2">
-            <span class="material-symbols-outlined">balance</span>
-            <h3>Employment Law</h3>
-            <p>Protecting employer and employee rights through fair, clear guidance.</p>
-        </div>
-        <div class="service-card reveal delay-3">
-            <span class="material-symbols-outlined">home</span>
-            <h3>Real Estate Law</h3>
-            <p>Property transactions, title verification, and dispute resolution.</p>
-        </div>
-        <div class="service-card reveal delay-1">
-            <span class="material-symbols-outlined">family_restroom</span>
-            <h3>Family Law</h3>
-            <p>Sensitive, confidential support for family and marital matters.</p>
-        </div>
-        <div class="service-card reveal delay-2">
-            <span class="material-symbols-outlined">description</span>
-            <h3>Contract Law</h3>
-            <p>Drafting and reviewing agreements that protect your interests.</p>
-        </div>
-        <div class="service-card reveal delay-3">
-            <span class="material-symbols-outlined">shield</span>
-            <h3>Litigation Support</h3>
-            <p>Strong courtroom advocacy backed by thorough case preparation.</p>
-        </div>
-    </div>
-</section>
-
-
-<!-- 3. WHY CHOOSE US -->
-<section class="sec reveal" style="background: var(--header1);">
-    <div class="why-wrap">
-        <img class="why-img reveal-left" src="./src/h4.webp" alt="Legal team meeting">
-        <div class="reveal-right">
-            <span class="sec-tag reveal-right delay-1">Why Choose Regails</span>
-            <h2 class="sec-title reveal-right delay-2">Committed To Protecting What Matters To You</h2>
-            <p class="sec-desc reveal-right delay-3">We combine deep legal knowledge with a client-first approach, keeping you informed at every stage of your case.</p>
-            <div class="stats-row">
-                <div class="stat-box reveal-right delay-1">
-                    <h2>2K+</h2>
-                    <p>Satisfied Clients</p>
+        <div class="team-grid">
+            <div class="team-card reveal delay-1">
+                <img src="./src/team1-1.webp" alt="Attorney portrait">
+                <div class="team-info">
+                    <h3>Arvind Menon</h3>
+                    <p>Corporate Law</p>
+                    <div class="team-icons">
+                        <a href="404.html"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="404.html"><i class="fa-brands fa-x-twitter"></i></a>
+                    </div>
                 </div>
-                <div class="stat-box reveal-right delay-2">
-                    <h2>18+</h2>
-                    <p>Years of Experience</p>
+            </div>
+            <div class="team-card reveal delay-2">
+                <img src="./src/team1-2.webp" alt="Attorney portrait">
+                <div class="team-info">
+                    <h3>Priya Sundaram</h3>
+                    <p>Family Law</p>
+                    <div class="team-icons">
+                        <a href="404.html"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="404.html"><i class="fa-brands fa-x-twitter"></i></a>
+                    </div>
                 </div>
-                <div class="stat-box reveal-right delay-3">
-                    <h2>95%</h2>
-                    <p>Case Success Rate</p>
+            </div>
+            <div class="team-card reveal delay-3">
+                <img src="./src/team1-3.webp" alt="Attorney portrait">
+                <div class="team-info">
+                    <h3>Rahul Verma</h3>
+                    <p>Litigation</p>
+                    <div class="team-icons">
+                        <a href="404.html"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="404.html"><i class="fa-brands fa-x-twitter"></i></a>
+                    </div>
                 </div>
-                <div class="stat-box reveal-right delay-4">
-                    <h2>30+</h2>
-                    <p>Expert Attorneys</p>
+            </div>
+            <div class="team-card reveal delay-4">
+                <img src="./src/test1.webp" alt="Attorney portrait">
+                <div class="team-info">
+                    <h3>Sneha Kapoor</h3>
+                    <p>Real Estate Law</p>
+                    <div class="team-icons">
+                        <a href="404.html"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="404.html"><i class="fa-brands fa-x-twitter"></i></a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
 
-<!-- 4. HOW WE WORK -->
-<section class="sec reveal">
-    <div class="sec-header-center">
-        <span class="sec-tag">Our Process</span>
-        <h2 class="sec-title">How We Work With You</h2>
-        <p class="sec-desc">A clear, structured process so you always know what happens next with your case.</p>
-    </div>
-    <div class="process-grid">
-        <div class="process-card reveal delay-1">
-            <span class="process-num">01</span>
-            <span class="material-symbols-outlined">calendar_month</span>
-            <h3>Book Consultation</h3>
-            <p>Schedule a meeting to discuss your legal situation.</p>
+    <!-- 6. TESTIMONIALS -->
+    <section class="sec reveal">
+        <div class="sec-header-center">
+            <span class="sec-tag">Client Words</span>
+            <h2 class="sec-title">What Our Clients Say</h2>
+            <p class="sec-desc">Real experiences from individuals and businesses we have represented.</p>
         </div>
-        <div class="process-card reveal delay-2">
-            <span class="process-num">02</span>
-            <span class="material-symbols-outlined">fact_check</span>
-            <h3>Case Review</h3>
-            <p>We evaluate the facts and outline your options.</p>
-        </div>
-        <div class="process-card reveal delay-3">
-            <span class="process-num">03</span>
-            <span class="material-symbols-outlined">strategy</span>
-            <h3>Build Strategy</h3>
-            <p>A tailored legal strategy designed around your goals.</p>
-        </div>
-        <div class="process-card reveal delay-4">
-            <span class="process-num">04</span>
-            <span class="material-symbols-outlined">verified</span>
-            <h3>Resolve Case</h3>
-            <p>We represent and guide you through to resolution.</p>
-        </div>
-    </div>
-</section>
-
-
-<!-- 5. ATTORNEYS -->
-<section class="sec sec-dark reveal">
-    <div class="sec-header-center">
-        <span class="sec-tag">Our Team</span>
-        <h2 class="sec-title">Meet Our Attorneys</h2>
-        <p class="sec-desc">Experienced professionals dedicated to achieving the best outcome for your case.</p>
-    </div>
-    <div class="team-grid">
-        <div class="team-card reveal delay-1">
-            <img src="./src/team1-1.webp" alt="Attorney portrait">
-            <div class="team-info">
-                <h3>Arvind Menon</h3>
-                <p>Corporate Law</p>
-                <div class="team-icons">
-                    <a href="404.html"><i class="fa-brands fa-linkedin-in"></i></a>
-                    <a href="404.html"><i class="fa-brands fa-x-twitter"></i></a>
+        <div class="testi-grid">
+            <div class="testi-card reveal delay-1">
+                <p class="testi-quote">Regails handled our company's compliance restructuring with great clarity. Every
+                    step was explained well before action was taken.</p>
+                <div class="testi-person">
+                    <img src="./src/c1.webp" alt="Client">
+                    <div>
+                        <h4>Karthik Raja</h4>
+                        <span>Business Owner</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testi-card reveal delay-2">
+                <p class="testi-quote">Professional, patient, and thorough. They guided me through a difficult property
+                    dispute with confidence and care.</p>
+                <div class="testi-person">
+                    <img src="./src/c2.webp" alt="Client">
+                    <div>
+                        <h4>Meera Nair</h4>
+                        <span>Homeowner</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testi-card reveal delay-3">
+                <p class="testi-quote">Their employment law team resolved our workplace matter quickly, keeping both
+                    fairness and our business interests in mind.</p>
+                <div class="testi-person">
+                    <img src="./src/c3.webp" alt="Client">
+                    <div>
+                        <h4>Vishal Iyer</h4>
+                        <span>HR Director</span>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="team-card reveal delay-2">
-            <img src="./src/team1-2.webp" alt="Attorney portrait">
-            <div class="team-info">
-                <h3>Priya Sundaram</h3>
-                <p>Family Law</p>
-                <div class="team-icons">
-                    <a href="404.html"><i class="fa-brands fa-linkedin-in"></i></a>
-                    <a href="404.html"><i class="fa-brands fa-x-twitter"></i></a>
+    </section>
+
+
+    <!-- 7. CASE RESULTS -->
+    <section class="sec sec-dark reveal">
+        <div class="results-wrap">
+            <div class="reveal-right">
+                <span class="sec-tag  reveal-left delay-1">Track Record</span>
+                <h2 class="sec-title reveal-left delay-2">Recent Case Results</h2>
+                <p class="sec-desc  reveal-left delay-3">A snapshot of outcomes our team has secured for clients across
+                    practice areas.</p>
+
+                <div class="results-list reveal-left delay-4">
+
+                    <div class="result-item reveal-left delay-1">
+                        <div>
+                            <h4>Corporate Dispute</h4>
+                            <p>Favourably resolved</p>
+                        </div>
+                        <span class="result-tag">Resolved</span>
+                    </div>
+
+                    <div class="result-item reveal-left delay-2">
+                        <div>
+                            <h4>Employment Claim</h4>
+                            <p>Compensation secured</p>
+                        </div>
+                        <span class="result-tag">Won</span>
+                    </div>
+
+                    <div class="result-item reveal-left delay-3">
+                        <div>
+                            <h4>Property Dispute</h4>
+                            <p>Ownership confirmed</p>
+                        </div>
+                        <span class="result-tag">Won</span>
+                    </div>
+
                 </div>
+
+
             </div>
+            <img class="results-img reveal-left" src="./src/h5.webp" alt="Courtroom">
         </div>
-        <div class="team-card reveal delay-3">
-            <img src="./src/team1-3.webp" alt="Attorney portrait">
-            <div class="team-info">
-                <h3>Rahul Verma</h3>
-                <p>Litigation</p>
-                <div class="team-icons">
-                    <a href="404.html"><i class="fa-brands fa-linkedin-in"></i></a>
-                    <a href="404.html"><i class="fa-brands fa-x-twitter"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="team-card reveal delay-4">
-            <img src="./src/test1.webp" alt="Attorney portrait">
-            <div class="team-info">
-                <h3>Sneha Kapoor</h3>
-                <p>Real Estate Law</p>
-                <div class="team-icons">
-                    <a href="404.html"><i class="fa-brands fa-linkedin-in"></i></a>
-                    <a href="404.html"><i class="fa-brands fa-x-twitter"></i></a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+    </section>
 
 
-<!-- 6. TESTIMONIALS -->
-<section class="sec reveal">
-    <div class="sec-header-center">
-        <span class="sec-tag">Client Words</span>
-        <h2 class="sec-title">What Our Clients Say</h2>
-        <p class="sec-desc">Real experiences from individuals and businesses we have represented.</p>
-    </div>
-    <div class="testi-grid">
-        <div class="testi-card reveal delay-1">
-            <p class="testi-quote">Regails handled our company's compliance restructuring with great clarity. Every step was explained well before action was taken.</p>
-            <div class="testi-person">
-                <img src="./src/c1.webp" alt="Client">
-                <div>
-                    <h4>Karthik Raja</h4>
-                    <span>Business Owner</span>
-                </div>
-            </div>
-        </div>
-        <div class="testi-card reveal delay-2">
-            <p class="testi-quote">Professional, patient, and thorough. They guided me through a difficult property dispute with confidence and care.</p>
-            <div class="testi-person">
-                <img src="./src/c2.webp" alt="Client">
-                <div>
-                    <h4>Meera Nair</h4>
-                    <span>Homeowner</span>
-                </div>
-            </div>
-        </div>
-        <div class="testi-card reveal delay-3">
-            <p class="testi-quote">Their employment law team resolved our workplace matter quickly, keeping both fairness and our business interests in mind.</p>
-            <div class="testi-person">
-                <img src="./src/c3.webp" alt="Client">
-                <div>
-                    <h4>Vishal Iyer</h4>
-                    <span>HR Director</span>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+    <!-- 8. CTA / BOOK CONSULTATION -->
+    <section class="cta-section reveal">
+        <span class="material-symbols-outlined reveal delay-1">event_available</span>
+        <h1 class="reveal delay-2">Speak With A Legal Expert Today</h1>
+        <p class="reveal delay-3">Get clear answers and a strategy tailored to your case. Our team is ready to listen
+            and help you take the next step with confidence.</p>
+        <button class="hero-btn errorpage reveal delay-4" style="margin:0 auto;color:black;">Contact Us <span
+                class="material-symbols-outlined">arrow_forward</span></button>
+    </section>
 
-
-<!-- 7. CASE RESULTS -->
-<section class="sec sec-dark reveal">
-    <div class="results-wrap">
-        <div class="reveal-right">
-            <span class="sec-tag  reveal-left delay-1">Track Record</span>
-            <h2 class="sec-title reveal-left delay-2">Recent Case Results</h2>
-            <p class="sec-desc  reveal-left delay-3">A snapshot of outcomes our team has secured for clients across practice areas.</p>
-
-<div class="results-list reveal-left delay-4">
-
-    <div class="result-item reveal-left delay-1">
-        <div>
-            <h4>Corporate Dispute</h4>
-            <p>Favourably resolved</p>
-        </div>
-        <span class="result-tag">Resolved</span>
-    </div>
-
-    <div class="result-item reveal-left delay-2">
-        <div>
-            <h4>Employment Claim</h4>
-            <p>Compensation secured</p>
-        </div>
-        <span class="result-tag">Won</span>
-    </div>
-
-    <div class="result-item reveal-left delay-3">
-        <div>
-            <h4>Property Dispute</h4>
-            <p>Ownership confirmed</p>
-        </div>
-        <span class="result-tag">Won</span>
-    </div>
-
-</div>
-
-
-        </div>
-        <img class="results-img reveal-left" src="./src/h5.webp" alt="Courtroom">
-    </div>
-</section>
-
-
-<!-- 8. CTA / BOOK CONSULTATION -->
-<section class="cta-section reveal">
-    <span class="material-symbols-outlined reveal delay-1">event_available</span>
-    <h1 class="reveal delay-2">Speak With A Legal Expert Today</h1>
-    <p class="reveal delay-3">Get clear answers and a strategy tailored to your case. Our team is ready to listen and help you take the next step with confidence.</p>
-    <button class="hero-btn errorpage reveal delay-4" style="margin:0 auto;color:black;">Contact Us <span class="material-symbols-outlined">arrow_forward</span></button>
-</section>
-
-        <footer class="footer reveal">
+    <footer class="footer reveal">
 
         <div class="newsletter-wrap">
             <h1 class="reveal delay-1">Newsletter</h1>
@@ -1434,13 +1549,14 @@
                 <input type="email" placeholder="Email Address" id="footer-mail">
                 <button class="footer-btn">Subscribe</button>
             </div>
+               <p class="ferror"></p>
         </div>
 
         <div class="footer-main">
             <div class="foot1 reveal-left delay-1">
                 <a href="index.html"><img src="./src/logo.webp" alt="company Logo" class="footer-logo"></a>
 
-               <p>Trusted legal guidance and effective solutions tailored to protect your rights and interests.</p>
+                <p>Trusted legal guidance and effective solutions tailored to protect your rights and interests.</p>
 
                 <div class="footer-icons">
                     <a href="404.html"><i class="fa-brands fa-whatsapp"></i></a>
@@ -1464,39 +1580,39 @@
                 </div>
             </div>
 
-          <div class="foot2 reveal-left delay-3">
-    <h2>Services</h2>
+            <div class="foot2 reveal-left delay-3">
+                <h2>Services</h2>
 
-    <div class="footer-links">
-        <a href="404.html">Corporate Law</a>
-        <a href="404.html">Employment Law</a>
-        <a href="404.html">Real Estate Law</a>
-        <a href="404.html">Business Advisory</a>
-        <a href="404.html">Legal Consultation</a>
-    </div>
-</div>
+                <div class="footer-links">
+                    <a href="404.html">Corporate Law</a>
+                    <a href="404.html">Employment Law</a>
+                    <a href="404.html">Real Estate Law</a>
+                    <a href="404.html">Business Advisory</a>
+                    <a href="404.html">Legal Consultation</a>
+                </div>
+            </div>
 
 
-<div class="foot2 reveal-right delay-1">
+            <div class="foot2 reveal-right delay-1">
 
-    <h2>Support us</h2>
+                <h2>Support us</h2>
 
-    <div class="footer-links">
-        <a href="404.html">Contract Law</a>
-        <a href="404.html">Family Law</a>
-        <a href="404.html">Property Disputes</a>
-        <a href="404.html">Litigation Support</a>
-        <a href="404.html">Dispute Resolution</a>
-    </div>
+                <div class="footer-links">
+                    <a href="404.html">Contract Law</a>
+                    <a href="404.html">Family Law</a>
+                    <a href="404.html">Property Disputes</a>
+                    <a href="404.html">Litigation Support</a>
+                    <a href="404.html">Dispute Resolution</a>
+                </div>
 
-</div>
+            </div>
 
             <div class="foot2 reveal-right delay-2">
                 <h2>Address</h2>
 
                 <div class="footer-links">
 
-            
+
                     <a href="404.html"> <span class="material-symbols-outlined">call</span>+91 12345 67898</a>
                     <a href="404.html"><span class="material-symbols-outlined">mail</span>admin@gmail.com</a>
                     <a href="404.html"><span class="material-symbols-outlined">location_on</span>Chennai, Tamilnadu</a>
@@ -1519,6 +1635,7 @@
 
     <script src="script.js"></script>
     <script src="hero.js"></script>
-   
+
 </body>
+
 </html>

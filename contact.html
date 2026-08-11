@@ -187,9 +187,9 @@
             padding: 55px 45px;
         }
 
-                .form-panel .cnt-title{
-                    color: white;
-                }
+        .form-panel .cnt-title {
+            color: white;
+        }
 
         .form-panel .cnt-title,
         .form-panel .cnt-desc {
@@ -523,6 +523,19 @@
                 padding: 10px 14px;
             }
         }
+
+        .errmsg{
+            font-size: 12px;
+            color: var(--pcolor);
+        }
+
+        .err2{
+            margin-bottom: 15px;
+        }
+
+        .conbtn{
+            margin-bottom: 15px;
+        }
     </style>
 </head>
 
@@ -591,32 +604,33 @@
 
     <!-- 1. PAGE BANNER -->
     <section class="cnt-banner">
-        <span class="cnt-tag">Contact Regails</span>
-        <h1>We're Ready To <span>Hear From You</span></h1>
-        <p>Reach out to discuss your legal concern, book a consultation, or simply ask a question. Our team responds
+        <span class="cnt-tag reveal delay-1">Contact Regails</span>
+        <h1 class="reveal delay-2">We're Ready To <span>Hear From You</span></h1>
+        <p class="reveal delay-3">Reach out to discuss your legal concern, book a consultation, or simply ask a
+            question. Our team responds
             promptly.</p>
     </section>
 
 
     <!-- 2. CONTACT INFO CARDS -->
-    <section class="cnt-sec">
+    <section class="cnt-sec reveal">
         <div class="info-grid">
-            <div class="info-card errorpage">
+            <div class="info-card errorpage reveal delay-1">
                 <span class="material-symbols-outlined">call</span>
                 <h3>Call Us</h3>
                 <p>+91 12345 09876<br>Mon - Fri, 9:00 - 6:00</p>
             </div>
-            <div class="info-card errorpage">
+            <div class="info-card errorpage reveal delay-2">
                 <span class="material-symbols-outlined">mail</span>
                 <h3>Email Us</h3>
                 <p>admin@gmail.com<br>We reply within 24 hours</p>
             </div>
-            <div class="info-card errorpage">
+            <div class="info-card errorpage reveal delay-3">
                 <span class="material-symbols-outlined">location_on</span>
                 <h3>Visit Our Office</h3>
                 <p>Regails Legal Consultancy<br>Chennai, Tamil Nadu</p>
             </div>
-            <div class="info-card errorpage">
+            <div class="info-card errorpage reveal delay-4">
                 <span class="material-symbols-outlined">schedule</span>
                 <h3>Office Hours</h3>
                 <p>Monday - Friday<br>9:00 AM - 6:00 PM</p>
@@ -626,30 +640,49 @@
 
 
     <!-- 3. CONTACT FORM + IMAGE -->
-    <section class="cnt-sec" style="padding-top:0;">
+    <section class="cnt-sec reveal" style="padding-top:0;">
         <div class="form-wrap">
-            <img class="form-img" src="./src/con1.webp" alt="Legal consultation meeting">
-            <div class="form-panel">
+            <img class="form-img reveal-left" src="./src/con1.webp" alt="Legal consultation meeting">
+            <div class="form-panel reveal-right">
                 <span class="cnt-tag">Send A Message</span>
                 <h2 class="cnt-title">Book Your Free Consultation</h2>
                 <p class="cnt-desc">Fill out the form and one of our attorneys will get back to you shortly.</p>
 
                 <div class="form-row">
-                    <input type="text" placeholder="Full Name">
-                    <input type="email" placeholder="Email Address">
+                    <div>
+                        <input type="text" placeholder="Full Name" id="conname">
+                        <p class="errmsg"></p>
+                    </div>
+                    <div>
+                        <input type="email" placeholder="Email Address" id="conemail">
+                        <p class="errmsg"></p>
+                    </div>
                 </div>
                 <div class="form-row">
-                    <input type="tel" placeholder="Phone Number">
-                   <input type="text" placeholder="Services">
+                    <div>
+                        <input type="tel" placeholder="Phone Number" id="conno">
+                        <p class="errmsg"></p>
+                    </div>
+                    <div>
+                        <input type="text" placeholder="Services" id="conser">
+                        <p class="errmsg"></p>
+                    </div>
                 </div>
-                <textarea placeholder="Tell us about your case"></textarea>
-                <button>Submit Request <span class="material-symbols-outlined">arrow_forward</span></button>
-            </div>
+              
+                <div>
+                      <textarea placeholder="Tell us about your case" id="context"></textarea>
+                        <p class="errmsg err2"></p>
+                    </div>
+                   
+                <button class="conbtn">Submit Request <span
+                        class="material-symbols-outlined">arrow_forward</span></button>
+                    <p class="errmsg err2" id="submitMsg"></p>
+                    </div>
         </div>
     </section>
 
 
-    <section class="mapsec">
+    <section class="mapsec reveal">
         <div class="mapsec-header-center">
             <span class="mapsec-tag">Find Us</span>
             <h2 class="mapsec-title">Our Office Location</h2>
@@ -674,87 +707,85 @@
 
 
     <!-- 4. OFFICE LOCATION -->
-```html
-<section class="cnt-sec cnt-sec-dark">
-    <div class="cnt-header-center">
-        <span class="cnt-tag">Get In Touch</span>
-        <h2 class="cnt-title">Connect With Our Legal Team</h2>
-        <p class="cnt-desc">
-            Have a legal concern or need professional guidance? Reach out to our
-            team for confidential consultation and reliable legal assistance.
-        </p>
-    </div>
 
-    <div class="location-wrap">
-        <img class="location-map"
-            src="./src/a5.webp"
-            alt="Legal Consultation">
-
-        <div class="location-details">
-
-            <div class="location-item">
-                <span class="material-symbols-outlined">support_agent</span>
-                <div>
-                    <h4>Legal Assistance</h4>
-                    <p style="color:#cfcfcf;">
-                        Speak with our legal consultants to discuss your
-                        concerns and understand your available legal options.
-                    </p>
-                </div>
-            </div>
-
-            <div class="location-item">
-                <span class="material-symbols-outlined">schedule</span>
-                <div>
-                    <h4>Consultation Hours</h4>
-                    <p style="color:#cfcfcf;">
-                        Monday to Saturday, 9:00 AM – 6:00 PM.
-                        Prior appointment is recommended for consultations.
-                    </p>
-                </div>
-            </div>
-
-            <div class="location-item">
-                <span class="material-symbols-outlined">verified_user</span>
-                <div>
-                    <h4>Confidential & Trusted</h4>
-                    <p style="color:#cfcfcf;">
-                        Your legal information and consultation details are
-                        handled with complete confidentiality and professionalism.
-                    </p>
-                </div>
-            </div>
-
+    <section class="cnt-sec cnt-sec-dark reveal">
+        <div class="cnt-header-center">
+            <span class="cnt-tag">Get In Touch</span>
+            <h2 class="cnt-title">Connect With Our Legal Team</h2>
+            <p class="cnt-desc">
+                Have a legal concern or need professional guidance? Reach out to our
+                team for confidential consultation and reliable legal assistance.
+            </p>
         </div>
-    </div>
-</section>
-```
+
+        <div class="location-wrap">
+            <img class="location-map reveal-left" src="./src/a5.webp" alt="Legal Consultation">
+
+            <div class="location-details reveal-right">
+
+                <div class="location-item">
+                    <span class="material-symbols-outlined">support_agent</span>
+                    <div>
+                        <h4>Legal Assistance</h4>
+                        <p style="color:#cfcfcf;">
+                            Speak with our legal consultants to discuss your
+                            concerns and understand your available legal options.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="location-item">
+                    <span class="material-symbols-outlined">schedule</span>
+                    <div>
+                        <h4>Consultation Hours</h4>
+                        <p style="color:#cfcfcf;">
+                            Monday to Saturday, 9:00 AM – 6:00 PM.
+                            Prior appointment is recommended for consultations.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="location-item">
+                    <span class="material-symbols-outlined">verified_user</span>
+                    <div>
+                        <h4>Confidential & Trusted</h4>
+                        <p style="color:#cfcfcf;">
+                            Your legal information and consultation details are
+                            handled with complete confidentiality and professionalism.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
 
 
 
     <!-- 5. FAQ -->
-    <section class="cnt-sec">
+    <section class="cnt-sec reveal">
         <div class="cnt-header-center">
             <span class="cnt-tag">Common Questions</span>
             <h2 class="cnt-title">Frequently Asked Questions</h2>
             <p class="cnt-desc">Quick answers before you reach out to us.</p>
         </div>
         <div class="faq-wrap">
-            <div class="faq-item">
+            <div class="faq-item reveal-left delay-1">
                 <h4><span class="material-symbols-outlined">help</span>How do I book a consultation?</h4>
                 <p>You can fill out the contact form above, call our office directly, or use the "Book Appointment"
                     button on any page to schedule a session with an attorney.</p>
             </div>
-            <div class="faq-item">
+            <div class="faq-item reveal-left delay-2">
                 <h4><span class="material-symbols-outlined">help</span>Is the first consultation free?</h4>
                 <p>Yes, we offer a free initial consultation to understand your case before recommending a plan of
                     action.</p>
             </div>
-            <div class="faq-item">
+            <div class="faq-item reveal-left delay-3">
                 <h4><span class="material-symbols-outlined">help</span>How soon will I get a response?</h4>
                 <p>Our team typically responds to all enquiries within 24 hours on business days.</p>
             </div>
-            <div class="faq-item">
+            <div class="faq-item reveal-left delay-4">
                 <h4><span class="material-symbols-outlined">help</span>Do you offer online consultations?</h4>
                 <p>Yes, we offer video and phone consultations for clients who are unable to visit our office in person.
                 </p>
@@ -764,28 +795,30 @@
 
 
     <!-- 6. CTA -->
-    <section class="cnt-cta-section">
-        <span class="material-symbols-outlined">event_available</span>
-        <h1>Let's Talk About Your Case</h1>
-        <p>Reach out today and take the first step toward a clear legal strategy tailored to your situation.</p>
-        <button class="hero-btn errorpage" style="margin:0 auto;color:black;">Talk Us <span
+    <section class="cnt-cta-section reveal">
+        <span class="material-symbols-outlined reveal delay-1">event_available</span>
+        <h1 class="reveal delay-2">Let's Talk About Your Case</h1>
+        <p class="reveal delay-3">Reach out today and take the first step toward a clear legal strategy tailored to your
+            situation.</p>
+        <button class="hero-btn errorpage reveal delay-4" style="margin:0 auto;color:black;">Talk Us <span
                 class="material-symbols-outlined">arrow_forward</span></button>
     </section>
 
-    <footer class="footer">
+    <footer class="footer reveal">
 
         <div class="newsletter-wrap">
-            <h1>Newsletter</h1>
-            <h6>Stay updated</h6>
+            <h1 class="reveal delay-1">Newsletter</h1>
+            <h6 class="reveal delay-2">Stay updated</h6>
 
-            <div class="footer-form">
+            <div class="footer-form reveal delay-3">
                 <input type="email" placeholder="Email Address" id="footer-mail">
                 <button class="footer-btn">Subscribe</button>
             </div>
+            <p class="ferror"></p>
         </div>
 
         <div class="footer-main">
-            <div class="foot1">
+            <div class="foot1 reveal-left delay-1">
                 <a href="index.html"><img src="./src/logo.webp" alt="company Logo" class="footer-logo"></a>
 
                 <p>Trusted legal guidance and effective solutions tailored to protect your rights and interests.</p>
@@ -798,7 +831,7 @@
                 </div>
             </div>
 
-            <div class="foot2">
+            <div class="foot2 reveal-left delay-2">
                 <h2>Quick Links</h2>
 
                 <div class="footer-links">
@@ -812,7 +845,7 @@
                 </div>
             </div>
 
-            <div class="foot2">
+            <div class="foot2 reveal-left delay-3">
                 <h2>Services</h2>
 
                 <div class="footer-links">
@@ -825,7 +858,7 @@
             </div>
 
 
-            <div class="foot2">
+            <div class="foot2 reveal-right delay-1">
 
                 <h2>Support us</h2>
 
@@ -839,7 +872,7 @@
 
             </div>
 
-            <div class="foot2">
+            <div class="foot2 reveal-right delay-2">
                 <h2>Address</h2>
 
                 <div class="footer-links">
@@ -856,9 +889,9 @@
         </div>
 
         <div class="footer-bottom">
-            <p>Copyright @ 2026 All rights Reserved</p>
+            <p class="reveal-left">Copyright @ 2026 All rights Reserved</p>
 
-            <div>
+            <div class="reveal-right">
                 <a href="404.html">Terms & condition</a> | <a href="404.html">Privacy</a>
             </div>
         </div>
@@ -866,6 +899,7 @@
     </footer>
 
     <script src="script.js"></script>
+    <script src="contact.js"></script>
 </body>
 
 </html>
