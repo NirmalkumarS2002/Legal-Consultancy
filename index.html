@@ -57,10 +57,9 @@
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
-            padding: 200px 50px 70px 50px;
+            padding: 250px 50px 70px 50px;
             gap: 40px;
  
-            /* stacked on top of each other */
             position: absolute;
             inset: 0;
             width: 100%;
@@ -69,6 +68,8 @@
             z-index: 1;
             overflow: hidden;
             transition: opacity 1s ease;
+            
+
         }
  
         .hero-section.active {
@@ -76,17 +77,14 @@
             visibility: visible;
             z-index: 2;
         }
- 
-        /* background lives in its own layer so background-size:cover
-           is NEVER overridden by the zoom animation - fixes the
-           mobile "image not covering full height" issue */
+
         .hero-section::before {
             content: "";
             position: absolute;
-            inset: -6%;              /* extra bleed so the zoom never shows an edge */
+            inset: -6%;         
             background-image: linear-gradient(125deg, rgba(0, 0, 0, 0.603), rgba(0, 0, 0, 0.473)), var(--bg-img);
             background-repeat: no-repeat;
-            background-size: cover;  /* always cover, on every screen size */
+            background-size: cover;  
             background-position: center center;
             z-index: -1;
             transform: scale(1);
@@ -157,7 +155,7 @@
         }
  
         
-              .hero-btn {
+              .hero-btn2 {
             padding: 17px 30px;
             font-size: 15px;
             border: none;
@@ -173,22 +171,22 @@
             opacity: 0;
         }
  
-        .hero-section.active .hero-btn {
+        .hero-section.active .hero-btn2 {
             animation: fadeInUp .8s ease forwards, pulseGlow 2.5s ease-in-out infinite;
             animation-delay: .95s, 3s;
         }
  
-         .hero-btn:hover span{
+         .hero-btn2:hover span{
             transform: translateX(5px);
          }
  
-           .hero-btn:hover{
+           .hero-btn2:hover{
             box-shadow: 1px 1px 20px rgba(184, 135, 11, 0.61);
             background: #f8a322;
            }
  
         
-        .hero-btn span{
+        .hero-btn2 span{
             font-size: 20px;
             transition: .5s ease;
         }
@@ -377,7 +375,7 @@
                 margin: 20px auto;
             }
  
-            .hero-btn{
+            .hero-btn2{
                 margin: 20px auto;
             }
  
@@ -832,6 +830,8 @@
         text-align: center;
     }
 
+   
+
     .cta-section>span.material-symbols-outlined {
         font-size: 45px;
         color: var(--pcolor);
@@ -961,7 +961,7 @@
                 advocacy, and reliable solutions for individuals and businesses seeking justice, protection, and
                 long-term
                 legal confidence</p>
-            <button class="hero-btn errorpage">Book a Appointment <span class="material-symbols-outlined">arrow_forward</span></button>
+            <button class="hero-btn2 errorpage">Book a Appointment <span class="material-symbols-outlined">arrow_forward</span></button>
         </div>
 
 
@@ -1021,7 +1021,7 @@
         businesses navigate complex legal matters with clarity and confidence.
     </p>
 
-    <button class="hero-btn errorpage">
+    <button class="hero-btn2 errorpage">
         Schedule a Consultation
         <span class="material-symbols-outlined">arrow_forward</span>
     </button>
@@ -1087,7 +1087,7 @@
         representation to help you move forward with confidence.
     </p>
 
-    <button class="hero-btn errorpage">
+    <button class="hero-btn2 errorpage">
         Talk to Our Legal Team
         <span class="material-symbols-outlined">arrow_forward</span>
     </button>
@@ -1145,61 +1145,61 @@
 
     
 <!-- 1. WHO WE ARE -->
-<section class="sec">
+<section class="sec reveal">
     <div class="about-wrap">
         <div class="about-img-grid">
-            <img src="./src/h1.webp" alt="Lawyer discussing case">
-            <img src="./src/h3.webp" alt="Law books in office">
+            <img src="./src/h1.webp" alt="Lawyer discussing case" class="reveal-left-2">
+            <img src="./src/h3.webp" alt="Law books in office" class="reveal-left delay-1">
         </div>
-        <div>
-            <span class="sec-tag">Who We Are</span>
-            <h2 class="sec-title">Two Decades of Trusted Legal Practice</h2>
-            <p class="sec-desc">Regails brings together experienced advocates and consultants who work closely with every client, offering honest guidance and dependable representation across corporate, employment, and civil matters.</p>
+        <div class="reveal-right">
+            <span class="sec-tag reveal-right delay-1">Who We Are</span>
+            <h2 class="sec-title reveal-right delay-2">Two Decades of Trusted Legal Practice</h2>
+            <p class="sec-desc reveal-right delay-3">Regails brings together experienced advocates and consultants who work closely with every client, offering honest guidance and dependable representation across corporate, employment, and civil matters.</p>
             <div class="about-points">
-                <div><span class="material-symbols-outlined">check_circle</span>Licensed and experienced attorneys</div>
-                <div><span class="material-symbols-outlined">check_circle</span>Transparent fees, no hidden charges</div>
-                <div><span class="material-symbols-outlined">check_circle</span>Personalised strategy for every case</div>
+                <div class="reveal-right delay-1"><span class="material-symbols-outlined">check_circle</span>Licensed and experienced attorneys</div>
+                <div class="reveal-right delay-2"><span class="material-symbols-outlined">check_circle</span>Transparent fees, no hidden charges</div>
+                <div class="reveal-right delay-3"><span class="material-symbols-outlined">check_circle</span>Personalised strategy for every case</div>
             </div>
-            <button class="hero-btn errorpage" style="color:black;">Know More About Us <span class="material-symbols-outlined">arrow_forward</span></button>
+            <button class="hero-btn errorpage reveal-right delay-4" style="color:black;">Know More About Us <span class="material-symbols-outlined">arrow_forward</span></button>
         </div>
     </div>
 </section>
 
 
 <!-- 2. PRACTICE AREAS -->
-<section class="sec sec-dark">
+<section class="sec sec-dark reveal">
     <div class="sec-header-center">
         <span class="sec-tag">What We Do</span>
         <h2 class="sec-title">Our Practice Areas</h2>
         <p class="sec-desc">Comprehensive legal support built around your specific situation, delivered by specialists in each field of law.</p>
     </div>
     <div class="services-grid">
-        <div class="service-card">
+        <div class="service-card reveal delay-1">
             <span class="material-symbols-outlined">gavel</span>
             <h3>Corporate Law</h3>
             <p>Structuring, compliance, and contracts for businesses of every size.</p>
         </div>
-        <div class="service-card">
+        <div class="service-card reveal delay-2">
             <span class="material-symbols-outlined">balance</span>
             <h3>Employment Law</h3>
             <p>Protecting employer and employee rights through fair, clear guidance.</p>
         </div>
-        <div class="service-card">
+        <div class="service-card reveal delay-3">
             <span class="material-symbols-outlined">home</span>
             <h3>Real Estate Law</h3>
             <p>Property transactions, title verification, and dispute resolution.</p>
         </div>
-        <div class="service-card">
+        <div class="service-card reveal delay-1">
             <span class="material-symbols-outlined">family_restroom</span>
             <h3>Family Law</h3>
             <p>Sensitive, confidential support for family and marital matters.</p>
         </div>
-        <div class="service-card">
+        <div class="service-card reveal delay-2">
             <span class="material-symbols-outlined">description</span>
             <h3>Contract Law</h3>
             <p>Drafting and reviewing agreements that protect your interests.</p>
         </div>
-        <div class="service-card">
+        <div class="service-card reveal delay-3">
             <span class="material-symbols-outlined">shield</span>
             <h3>Litigation Support</h3>
             <p>Strong courtroom advocacy backed by thorough case preparation.</p>
@@ -1209,27 +1209,27 @@
 
 
 <!-- 3. WHY CHOOSE US -->
-<section class="sec" style="background: var(--header1);">
+<section class="sec reveal" style="background: var(--header1);">
     <div class="why-wrap">
-        <img class="why-img" src="./src/h4.webp" alt="Legal team meeting">
-        <div>
-            <span class="sec-tag">Why Choose Regails</span>
-            <h2 class="sec-title">Committed To Protecting What Matters To You</h2>
-            <p class="sec-desc">We combine deep legal knowledge with a client-first approach, keeping you informed at every stage of your case.</p>
+        <img class="why-img reveal-left" src="./src/h4.webp" alt="Legal team meeting">
+        <div class="reveal-right">
+            <span class="sec-tag reveal-right delay-1">Why Choose Regails</span>
+            <h2 class="sec-title reveal-right delay-2">Committed To Protecting What Matters To You</h2>
+            <p class="sec-desc reveal-right delay-3">We combine deep legal knowledge with a client-first approach, keeping you informed at every stage of your case.</p>
             <div class="stats-row">
-                <div class="stat-box">
+                <div class="stat-box reveal-right delay-1">
                     <h2>2K+</h2>
                     <p>Satisfied Clients</p>
                 </div>
-                <div class="stat-box">
+                <div class="stat-box reveal-right delay-2">
                     <h2>18+</h2>
                     <p>Years of Experience</p>
                 </div>
-                <div class="stat-box">
+                <div class="stat-box reveal-right delay-3">
                     <h2>95%</h2>
                     <p>Case Success Rate</p>
                 </div>
-                <div class="stat-box">
+                <div class="stat-box reveal-right delay-4">
                     <h2>30+</h2>
                     <p>Expert Attorneys</p>
                 </div>
@@ -1240,32 +1240,32 @@
 
 
 <!-- 4. HOW WE WORK -->
-<section class="sec">
+<section class="sec reveal">
     <div class="sec-header-center">
         <span class="sec-tag">Our Process</span>
         <h2 class="sec-title">How We Work With You</h2>
         <p class="sec-desc">A clear, structured process so you always know what happens next with your case.</p>
     </div>
     <div class="process-grid">
-        <div class="process-card">
+        <div class="process-card reveal delay-1">
             <span class="process-num">01</span>
             <span class="material-symbols-outlined">calendar_month</span>
             <h3>Book Consultation</h3>
             <p>Schedule a meeting to discuss your legal situation.</p>
         </div>
-        <div class="process-card">
+        <div class="process-card reveal delay-2">
             <span class="process-num">02</span>
             <span class="material-symbols-outlined">fact_check</span>
             <h3>Case Review</h3>
             <p>We evaluate the facts and outline your options.</p>
         </div>
-        <div class="process-card">
+        <div class="process-card reveal delay-3">
             <span class="process-num">03</span>
             <span class="material-symbols-outlined">strategy</span>
             <h3>Build Strategy</h3>
             <p>A tailored legal strategy designed around your goals.</p>
         </div>
-        <div class="process-card">
+        <div class="process-card reveal delay-4">
             <span class="process-num">04</span>
             <span class="material-symbols-outlined">verified</span>
             <h3>Resolve Case</h3>
@@ -1276,14 +1276,14 @@
 
 
 <!-- 5. ATTORNEYS -->
-<section class="sec sec-dark">
+<section class="sec sec-dark reveal">
     <div class="sec-header-center">
         <span class="sec-tag">Our Team</span>
         <h2 class="sec-title">Meet Our Attorneys</h2>
         <p class="sec-desc">Experienced professionals dedicated to achieving the best outcome for your case.</p>
     </div>
     <div class="team-grid">
-        <div class="team-card">
+        <div class="team-card reveal delay-1">
             <img src="./src/team1-1.webp" alt="Attorney portrait">
             <div class="team-info">
                 <h3>Arvind Menon</h3>
@@ -1294,7 +1294,7 @@
                 </div>
             </div>
         </div>
-        <div class="team-card">
+        <div class="team-card reveal delay-2">
             <img src="./src/team1-2.webp" alt="Attorney portrait">
             <div class="team-info">
                 <h3>Priya Sundaram</h3>
@@ -1305,7 +1305,7 @@
                 </div>
             </div>
         </div>
-        <div class="team-card">
+        <div class="team-card reveal delay-3">
             <img src="./src/team1-3.webp" alt="Attorney portrait">
             <div class="team-info">
                 <h3>Rahul Verma</h3>
@@ -1316,7 +1316,7 @@
                 </div>
             </div>
         </div>
-        <div class="team-card">
+        <div class="team-card reveal delay-4">
             <img src="./src/test1.webp" alt="Attorney portrait">
             <div class="team-info">
                 <h3>Sneha Kapoor</h3>
@@ -1332,14 +1332,14 @@
 
 
 <!-- 6. TESTIMONIALS -->
-<section class="sec">
+<section class="sec reveal">
     <div class="sec-header-center">
         <span class="sec-tag">Client Words</span>
         <h2 class="sec-title">What Our Clients Say</h2>
         <p class="sec-desc">Real experiences from individuals and businesses we have represented.</p>
     </div>
     <div class="testi-grid">
-        <div class="testi-card">
+        <div class="testi-card reveal delay-1">
             <p class="testi-quote">Regails handled our company's compliance restructuring with great clarity. Every step was explained well before action was taken.</p>
             <div class="testi-person">
                 <img src="./src/c1.webp" alt="Client">
@@ -1349,7 +1349,7 @@
                 </div>
             </div>
         </div>
-        <div class="testi-card">
+        <div class="testi-card reveal delay-2">
             <p class="testi-quote">Professional, patient, and thorough. They guided me through a difficult property dispute with confidence and care.</p>
             <div class="testi-person">
                 <img src="./src/c2.webp" alt="Client">
@@ -1359,7 +1359,7 @@
                 </div>
             </div>
         </div>
-        <div class="testi-card">
+        <div class="testi-card reveal delay-3">
             <p class="testi-quote">Their employment law team resolved our workplace matter quickly, keeping both fairness and our business interests in mind.</p>
             <div class="testi-person">
                 <img src="./src/c3.webp" alt="Client">
@@ -1374,16 +1374,16 @@
 
 
 <!-- 7. CASE RESULTS -->
-<section class="sec sec-dark">
+<section class="sec sec-dark reveal">
     <div class="results-wrap">
-        <div>
-            <span class="sec-tag">Track Record</span>
-            <h2 class="sec-title">Recent Case Results</h2>
-            <p class="sec-desc">A snapshot of outcomes our team has secured for clients across practice areas.</p>
+        <div class="reveal-right">
+            <span class="sec-tag  reveal-left delay-1">Track Record</span>
+            <h2 class="sec-title reveal-left delay-2">Recent Case Results</h2>
+            <p class="sec-desc  reveal-left delay-3">A snapshot of outcomes our team has secured for clients across practice areas.</p>
 
-<div class="results-list">
+<div class="results-list reveal-left delay-4">
 
-    <div class="result-item">
+    <div class="result-item reveal-left delay-1">
         <div>
             <h4>Corporate Dispute</h4>
             <p>Favourably resolved</p>
@@ -1391,7 +1391,7 @@
         <span class="result-tag">Resolved</span>
     </div>
 
-    <div class="result-item">
+    <div class="result-item reveal-left delay-2">
         <div>
             <h4>Employment Claim</h4>
             <p>Compensation secured</p>
@@ -1399,7 +1399,7 @@
         <span class="result-tag">Won</span>
     </div>
 
-    <div class="result-item">
+    <div class="result-item reveal-left delay-3">
         <div>
             <h4>Property Dispute</h4>
             <p>Ownership confirmed</p>
@@ -1411,33 +1411,33 @@
 
 
         </div>
-        <img class="results-img" src="./src/h5.webp" alt="Courtroom">
+        <img class="results-img reveal-left" src="./src/h5.webp" alt="Courtroom">
     </div>
 </section>
 
 
 <!-- 8. CTA / BOOK CONSULTATION -->
-<section class="cta-section">
-    <span class="material-symbols-outlined">event_available</span>
-    <h1>Speak With A Legal Expert Today</h1>
-    <p>Get clear answers and a strategy tailored to your case. Our team is ready to listen and help you take the next step with confidence.</p>
-    <button class="hero-btn errorpage" style="margin:0 auto;color:black;">Contact Us <span class="material-symbols-outlined">arrow_forward</span></button>
+<section class="cta-section reveal">
+    <span class="material-symbols-outlined reveal delay-1">event_available</span>
+    <h1 class="reveal delay-2">Speak With A Legal Expert Today</h1>
+    <p class="reveal delay-3">Get clear answers and a strategy tailored to your case. Our team is ready to listen and help you take the next step with confidence.</p>
+    <button class="hero-btn errorpage reveal delay-4" style="margin:0 auto;color:black;">Contact Us <span class="material-symbols-outlined">arrow_forward</span></button>
 </section>
 
-        <footer class="footer">
+        <footer class="footer reveal">
 
         <div class="newsletter-wrap">
-            <h1>Newsletter</h1>
-            <h6>Stay updated</h6>
+            <h1 class="reveal delay-1">Newsletter</h1>
+            <h6 class="reveal delay-2">Stay updated</h6>
 
-            <div class="footer-form">
+            <div class="footer-form reveal delay-3">
                 <input type="email" placeholder="Email Address" id="footer-mail">
                 <button class="footer-btn">Subscribe</button>
             </div>
         </div>
 
         <div class="footer-main">
-            <div class="foot1">
+            <div class="foot1 reveal-left delay-1">
                 <a href="index.html"><img src="./src/logo.webp" alt="company Logo" class="footer-logo"></a>
 
                <p>Trusted legal guidance and effective solutions tailored to protect your rights and interests.</p>
@@ -1450,7 +1450,7 @@
                 </div>
             </div>
 
-            <div class="foot2">
+            <div class="foot2 reveal-left delay-2">
                 <h2>Quick Links</h2>
 
                 <div class="footer-links">
@@ -1464,7 +1464,7 @@
                 </div>
             </div>
 
-          <div class="foot2">
+          <div class="foot2 reveal-left delay-3">
     <h2>Services</h2>
 
     <div class="footer-links">
@@ -1477,7 +1477,7 @@
 </div>
 
 
-<div class="foot2">
+<div class="foot2 reveal-right delay-1">
 
     <h2>Support us</h2>
 
@@ -1491,7 +1491,7 @@
 
 </div>
 
-            <div class="foot2">
+            <div class="foot2 reveal-right delay-2">
                 <h2>Address</h2>
 
                 <div class="footer-links">
@@ -1508,9 +1508,9 @@
         </div>
 
         <div class="footer-bottom">
-            <p>Copyright @ 2026 All rights Reserved</p>
+            <p class="reveal-left">Copyright @ 2026 All rights Reserved</p>
 
-            <div>
+            <div class="reveal-right">
                 <a href="404.html">Terms & condition</a> | <a href="404.html">Privacy</a>
             </div>
         </div>
