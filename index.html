@@ -286,6 +286,10 @@
         margin: 0 auto;
     }
 
+    .about-wrap .hero-btn{
+        margin: 40px 0;
+    }
+
     .about-img-grid {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -550,6 +554,9 @@
         border-radius: 10px;
         padding: 35px 28px;
         border: var(--border);
+
+        display: flex;
+        flex-direction: column;
     }
 
     .testi-quote {
@@ -557,6 +564,7 @@
         line-height: 1.7;
         color: #555;
         margin-bottom: 25px;
+        flex: 1;
     }
 
     .testi-person {
@@ -610,7 +618,7 @@
 
     .result-item h4 {
         font-size: 17px;
-        color: var(--header2);
+        color: white;
         margin-bottom: 4px;
     }
 
@@ -640,7 +648,7 @@
 
     .cta-section {
         background: linear-gradient(120deg, rgba(0,0,0,0.75), rgba(0,0,0,0.55)), url("./src/h6.webp") center/cover no-repeat;
-        padding: 100px 50px;
+        padding: 100px 20px;
         text-align: center;
     }
 
@@ -800,7 +808,7 @@
 
 
                 <div>
-                    <h4>2300+</h4>
+                    <h4>2K+</h4>
                     <p>Satisfied Clients</p>
                 </div>
                 <div class="hero-foot-images">
@@ -888,7 +896,7 @@
             <p class="sec-desc">We combine deep legal knowledge with a client-first approach, keeping you informed at every stage of your case.</p>
             <div class="stats-row">
                 <div class="stat-box">
-                    <h2>2300+</h2>
+                    <h2>2K+</h2>
                     <p>Satisfied Clients</p>
                 </div>
                 <div class="stat-box">
@@ -1050,29 +1058,36 @@
             <span class="sec-tag">Track Record</span>
             <h2 class="sec-title">Recent Case Results</h2>
             <p class="sec-desc">A snapshot of outcomes our team has secured for clients across practice areas.</p>
-            <div class="results-list">
-                <div class="result-item">
-                    <div>
-                        <h4>Corporate Merger Dispute</h4>
-                        <p>Settled favourably outside court</p>
-                    </div>
-                    <span class="result-tag">Resolved</span>
-                </div>
-                <div class="result-item">
-                    <div>
-                        <h4>Wrongful Termination Claim</h4>
-                        <p>Full compensation secured for client</p>
-                    </div>
-                    <span class="result-tag">Won</span>
-                </div>
-                <div class="result-item">
-                    <div>
-                        <h4>Property Title Dispute</h4>
-                        <p>Ownership confirmed in client's favour</p>
-                    </div>
-                    <span class="result-tag">Won</span>
-                </div>
-            </div>
+
+<div class="results-list">
+
+    <div class="result-item">
+        <div>
+            <h4>Corporate Dispute</h4>
+            <p>Favourably resolved</p>
+        </div>
+        <span class="result-tag">Resolved</span>
+    </div>
+
+    <div class="result-item">
+        <div>
+            <h4>Employment Claim</h4>
+            <p>Compensation secured</p>
+        </div>
+        <span class="result-tag">Won</span>
+    </div>
+
+    <div class="result-item">
+        <div>
+            <h4>Property Dispute</h4>
+            <p>Ownership confirmed</p>
+        </div>
+        <span class="result-tag">Won</span>
+    </div>
+
+</div>
+
+
         </div>
         <img class="results-img" src="./src/h5.webp" alt="Courtroom">
     </div>
@@ -1084,7 +1099,7 @@
     <span class="material-symbols-outlined">event_available</span>
     <h1>Speak With A Legal Expert Today</h1>
     <p>Get clear answers and a strategy tailored to your case. Our team is ready to listen and help you take the next step with confidence.</p>
-    <button class="hero-btn errorpage" style="margin:0 auto;color:black;">Book a Appointment <span class="material-symbols-outlined">arrow_forward</span></button>
+    <button class="hero-btn errorpage" style="margin:0 auto;color:black;">Contact Us <span class="material-symbols-outlined">arrow_forward</span></button>
 </section>
 
         <footer class="footer">
