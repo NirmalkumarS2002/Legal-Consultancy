@@ -76,7 +76,7 @@
 
         .cnt-banner {
             min-height: 50vh;
-            background: linear-gradient(125deg, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.5)), url("https://images.unsplash.com/photo-1505664194779-8beaceb93744?q=80&w=1600&auto=format&fit=crop") center/cover no-repeat;
+            background: linear-gradient(125deg, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.5)), url("./src/s2.webp") top center/cover no-repeat;
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
@@ -296,7 +296,7 @@
 
         .location-item h4 {
             font-size: 16px;
-            color: var(--header2);
+            color: white;
             margin-bottom: 4px;
         }
 
@@ -347,7 +347,7 @@
         /* ===== 6. CTA ===== */
 
         .cnt-cta-section {
-            background: linear-gradient(120deg, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.55)), url("https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=1600&auto=format&fit=crop") center/cover no-repeat;
+            background: linear-gradient(120deg, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.55)), url("./src/a2.webp") center/cover no-repeat;
             padding: 100px 50px;
             text-align: center;
         }
@@ -412,6 +412,112 @@
                 padding: 40px 25px;
             }
         }
+
+        /*map section*/
+
+        .mapsec {
+            padding: 90px 50px;
+            background: #ffffff;
+        }
+
+        .mapsec-tag {
+            font-size: 14px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--pcolor);
+            font-weight: 600;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .mapsec-title {
+            font-size: clamp(28px, 4vw, 44px);
+            color: var(--header2);
+            margin-bottom: 18px;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .mapsec-desc {
+            font-size: 16px;
+            line-height: 1.7;
+            color: #555;
+            max-width: 600px;
+        }
+
+        .mapsec-header-center {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 45px auto;
+        }
+
+        .mapsec-header-center .mapsec-desc {
+            margin: 0 auto;
+        }
+
+        .mapsec-map-box {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            height: 480px;
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            border: var(--border);
+        }
+
+        .mapsec-map-box iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+            display: block;
+            filter: grayscale(15%) contrast(1.05);
+        }
+
+        .mapsec-map-pin {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background: white;
+            padding: 14px 20px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+            max-width: 260px;
+        }
+
+        .mapsec-map-pin span.material-symbols-outlined {
+            color: var(--pcolor);
+            font-size: 26px;
+        }
+
+        .mapsec-map-pin h4 {
+            font-size: 14px;
+            color: var(--header2);
+            margin-bottom: 3px;
+        }
+
+        .mapsec-map-pin p {
+            font-size: 12px;
+            color: #777;
+        }
+
+        @media (max-width:650px) {
+            .mapsec {
+                padding: 60px 20px;
+            }
+
+            .mapsec-map-box {
+                height: 320px;
+            }
+
+            .mapsec-map-pin {
+                max-width: 190px;
+                padding: 10px 14px;
+            }
+        }
     </style>
 </head>
 
@@ -457,7 +563,7 @@
                     <li><a href="about.html">About</a></li>
                     <li><a href="service.html">Services</a></li>
                     <li><a href="blog.html">Blogs</a></li>
-                    <li><a href="contact.html"  class="active">Contact</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
                 </ul>
 
             </div>
@@ -517,9 +623,7 @@
     <!-- 3. CONTACT FORM + IMAGE -->
     <section class="cnt-sec" style="padding-top:0;">
         <div class="form-wrap">
-            <img class="form-img"
-                src="https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=900&auto=format&fit=crop"
-                alt="Legal consultation meeting">
+            <img class="form-img" src="./src/con1.webp" alt="Legal consultation meeting">
             <div class="form-panel">
                 <span class="cnt-tag">Send A Message</span>
                 <h2 class="cnt-title">Book Your Free Consultation</h2>
@@ -546,44 +650,87 @@
     </section>
 
 
-    <!-- 4. OFFICE LOCATION -->
-    <section class="cnt-sec cnt-sec-dark">
-        <div class="cnt-header-center">
-            <span class="cnt-tag">Find Us</span>
-            <h2 class="cnt-title">Our Office Location</h2>
-            <p class="cnt-desc">Drop by our office for an in-person consultation, or reach us through any channel below.
-            </p>
+    <section class="mapsec">
+        <div class="mapsec-header-center">
+            <span class="mapsec-tag">Find Us</span>
+            <h2 class="mapsec-title">Our Office Location</h2>
+            <p class="mapsec-desc">Drop by our office for an in-person consultation, or find us easily using the map
+                below.</p>
         </div>
-        <div class="location-wrap">
-            <img class="location-map"
-                src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?q=80&w=900&auto=format&fit=crop"
-                alt="Office building location">
-            <div class="location-details">
-                <div class="location-item">
-                    <span class="material-symbols-outlined">location_on</span>
-                    <div>
-                        <h4>Head Office</h4>
-                        <p style="color:#cfcfcf;">Regails Legal Consultancy, Anna Salai, Chennai, Tamil Nadu - 600002
-                        </p>
-                    </div>
-                </div>
-                <div class="location-item">
-                    <span class="material-symbols-outlined">directions_car</span>
-                    <div>
-                        <h4>Parking</h4>
-                        <p style="color:#cfcfcf;">Free visitor parking available at the building entrance</p>
-                    </div>
-                </div>
-                <div class="location-item">
-                    <span class="material-symbols-outlined">train</span>
-                    <div>
-                        <h4>Nearest Metro</h4>
-                        <p style="color:#cfcfcf;">5 minutes walk from Thousand Lights Metro Station</p>
-                    </div>
+
+        <div class="mapsec-map-box">
+            <iframe src="https://maps.google.com/maps?q=Chennai%2C%20Tamil%20Nadu&t=&z=14&ie=UTF8&iwloc=&output=embed"
+                allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+            <div class="mapsec-map-pin">
+                <span class="material-symbols-outlined">location_on</span>
+                <div>
+                    <h4>Regails Legal Consultancy</h4>
+                    <p>Anna Salai, Chennai, Tamil Nadu</p>
                 </div>
             </div>
         </div>
     </section>
+
+
+
+    <!-- 4. OFFICE LOCATION -->
+```html
+<section class="cnt-sec cnt-sec-dark">
+    <div class="cnt-header-center">
+        <span class="cnt-tag">Get In Touch</span>
+        <h2 class="cnt-title">Connect With Our Legal Team</h2>
+        <p class="cnt-desc">
+            Have a legal concern or need professional guidance? Reach out to our
+            team for confidential consultation and reliable legal assistance.
+        </p>
+    </div>
+
+    <div class="location-wrap">
+        <img class="location-map"
+            src="./src/a5.webp"
+            alt="Legal Consultation">
+
+        <div class="location-details">
+
+            <div class="location-item">
+                <span class="material-symbols-outlined">support_agent</span>
+                <div>
+                    <h4>Legal Assistance</h4>
+                    <p style="color:#cfcfcf;">
+                        Speak with our legal consultants to discuss your
+                        concerns and understand your available legal options.
+                    </p>
+                </div>
+            </div>
+
+            <div class="location-item">
+                <span class="material-symbols-outlined">schedule</span>
+                <div>
+                    <h4>Consultation Hours</h4>
+                    <p style="color:#cfcfcf;">
+                        Monday to Saturday, 9:00 AM – 6:00 PM.
+                        Prior appointment is recommended for consultations.
+                    </p>
+                </div>
+            </div>
+
+            <div class="location-item">
+                <span class="material-symbols-outlined">verified_user</span>
+                <div>
+                    <h4>Confidential & Trusted</h4>
+                    <p style="color:#cfcfcf;">
+                        Your legal information and consultation details are
+                        handled with complete confidentiality and professionalism.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+```
+
 
 
     <!-- 5. FAQ -->

@@ -294,6 +294,7 @@
 
     .about-img-grid img:first-child {
         margin-top: 40px;
+           object-position: center;
     }
 
     .about-img-grid img {
@@ -301,6 +302,7 @@
         height: 260px;
         object-fit: cover;
         border-radius: 8px;
+        object-position: top;
     }
 
     .about-points {
@@ -376,6 +378,14 @@
         align-items: center;
         max-width: 1400px;
         margin: 0 auto;
+    }
+
+    .why-wrap .sec-title{
+        color: white;
+    }
+
+      .why-wrap  .sec-desc {
+        color: #cfcfcf;
     }
 
     .why-img {
@@ -629,7 +639,7 @@
     /* ===== 8. CTA / BOOK CONSULTATION ===== */
 
     .cta-section {
-        background: linear-gradient(120deg, rgba(0,0,0,0.75), rgba(0,0,0,0.55)), url("https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=1600&auto=format&fit=crop") center/cover no-repeat;
+        background: linear-gradient(120deg, rgba(0,0,0,0.75), rgba(0,0,0,0.55)), url("./src/h6.webp") center/cover no-repeat;
         padding: 100px 50px;
         text-align: center;
     }
@@ -808,8 +818,8 @@
 <section class="sec">
     <div class="about-wrap">
         <div class="about-img-grid">
-            <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=800&auto=format&fit=crop" alt="Lawyer discussing case">
-            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=800&auto=format&fit=crop" alt="Law books in office">
+            <img src="./src/h1.webp" alt="Lawyer discussing case">
+            <img src="./src/h3.webp" alt="Law books in office">
         </div>
         <div>
             <span class="sec-tag">Who We Are</span>
@@ -871,7 +881,7 @@
 <!-- 3. WHY CHOOSE US -->
 <section class="sec" style="background: var(--header1);">
     <div class="why-wrap">
-        <img class="why-img" src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=900&auto=format&fit=crop" alt="Legal team meeting">
+        <img class="why-img" src="./src/h4.webp" alt="Legal team meeting">
         <div>
             <span class="sec-tag">Why Choose Regails</span>
             <h2 class="sec-title">Committed To Protecting What Matters To You</h2>
@@ -944,7 +954,7 @@
     </div>
     <div class="team-grid">
         <div class="team-card">
-            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=500&auto=format&fit=crop" alt="Attorney portrait">
+            <img src="./src/team1-1.webp" alt="Attorney portrait">
             <div class="team-info">
                 <h3>Arvind Menon</h3>
                 <p>Corporate Law</p>
@@ -955,7 +965,7 @@
             </div>
         </div>
         <div class="team-card">
-            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=500&auto=format&fit=crop" alt="Attorney portrait">
+            <img src="./src/team1-2.webp" alt="Attorney portrait">
             <div class="team-info">
                 <h3>Priya Sundaram</h3>
                 <p>Family Law</p>
@@ -966,7 +976,7 @@
             </div>
         </div>
         <div class="team-card">
-            <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=500&auto=format&fit=crop" alt="Attorney portrait">
+            <img src="./src/team1-3.webp" alt="Attorney portrait">
             <div class="team-info">
                 <h3>Rahul Verma</h3>
                 <p>Litigation</p>
@@ -977,7 +987,7 @@
             </div>
         </div>
         <div class="team-card">
-            <img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?q=80&w=500&auto=format&fit=crop" alt="Attorney portrait">
+            <img src="./src/test1.webp" alt="Attorney portrait">
             <div class="team-info">
                 <h3>Sneha Kapoor</h3>
                 <p>Real Estate Law</p>
@@ -1002,7 +1012,7 @@
         <div class="testi-card">
             <p class="testi-quote">Regails handled our company's compliance restructuring with great clarity. Every step was explained well before action was taken.</p>
             <div class="testi-person">
-                <img src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=200&auto=format&fit=crop" alt="Client">
+                <img src="./src/c1.webp" alt="Client">
                 <div>
                     <h4>Karthik Raja</h4>
                     <span>Business Owner</span>
@@ -1012,7 +1022,7 @@
         <div class="testi-card">
             <p class="testi-quote">Professional, patient, and thorough. They guided me through a difficult property dispute with confidence and care.</p>
             <div class="testi-person">
-                <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=200&auto=format&fit=crop" alt="Client">
+                <img src="./src/c2.webp" alt="Client">
                 <div>
                     <h4>Meera Nair</h4>
                     <span>Homeowner</span>
@@ -1022,7 +1032,7 @@
         <div class="testi-card">
             <p class="testi-quote">Their employment law team resolved our workplace matter quickly, keeping both fairness and our business interests in mind.</p>
             <div class="testi-person">
-                <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=200&auto=format&fit=crop" alt="Client">
+                <img src="./src/c3.webp" alt="Client">
                 <div>
                     <h4>Vishal Iyer</h4>
                     <span>HR Director</span>
@@ -1064,7 +1074,7 @@
                 </div>
             </div>
         </div>
-        <img class="results-img" src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=900&auto=format&fit=crop" alt="Courtroom">
+        <img class="results-img" src="./src/h5.webp" alt="Courtroom">
     </div>
 </section>
 
